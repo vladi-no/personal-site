@@ -157,7 +157,7 @@ li {
 
 /* ===== Content sections (CV & portfolio) ===== */
 
-main > section {
+main>section {
     margin: 24px 0;
     padding: 16px 20px;
     border-radius: 6px;
@@ -165,12 +165,12 @@ main > section {
     border-left: 3px solid var(--accent);
 }
 
-main > section h3,
-main > section h4 {
+main>section h3,
+main>section h4 {
     margin-top: 0;
 }
 
-main > section p:last-child {
+main>section p:last-child {
     margin-bottom: 0;
 }
 
@@ -231,6 +231,10 @@ main > section p:last-child {
 /* ===== Mobile ≤ 600px ===== */
 
 @media (max-width: 600px) {
+    body {
+        background-attachment: scroll !important;
+    }
+
     .container {
         margin: 20px;
         padding: 24px;
