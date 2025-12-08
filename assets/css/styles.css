@@ -43,7 +43,7 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% auto;
-    background-attachment: fixed;  /* 👈 this line */
+    background-attachment: fixed;
 }
 
 /* ===== Links ===== */

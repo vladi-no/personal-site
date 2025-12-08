@@ -1,6 +1,6 @@
 # Personal Site – vladi.no
 
-This repository contains the code for my personal website at **https://vladi.no**.
+This repository contains the code for my personal website at **<https://vladi.no>**.
 
 It’s a small, hand-written site focused on clarity, calm design, and a light technical footprint.
 
@@ -111,4 +111,3 @@ Pushes to `main` are deployed automatically by GitHub Pages.
 ## License
 
 This is my personal site. Please don’t reuse the text, design, or images as-is for your own portfolio, but feel free to peek at the structure and CSS for inspiration.
-
