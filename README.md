@@ -8,7 +8,7 @@ with Jekyll so the shared layout, navigation, and theming stay in one place.
 ## Tech stack
 
 - **Jekyll** – shared layout, nav, and head/meta for all pages
-- **HTML** – page bodies with front matter (`index.html`, `cv.html`, `portfolio.html`, `contact.html`)
+- **HTML** – page bodies with front matter (`index.html`, `about.html`, `cv.html`, `portfolio.html`, `contact.html`)
 - **CSS** – custom styles in `assets/css/styles.css`
 - **JavaScript** – theme toggling in `assets/js/theme.js` + nav prefetch in `assets/js/nav-prefetch.js`
 - **Hosting** – GitHub Pages, with a custom domain: `vladi.no`
