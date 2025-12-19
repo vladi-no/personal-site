@@ -5,6 +5,8 @@
     --bg: #faf8f6;
     --fg: #111;
     --card: #ffffff;
+    --card-rgb: 255, 255, 255;
+    --card-alpha: 0.85;
 }
 
 [data-theme='dark'] {
@@ -14,6 +16,8 @@
     --bg: #111;
     --fg: #f0f0f0;
     --card: #1e1e1e;
+    --card-rgb: 30, 30, 30;
+    --card-alpha: 0.9;
 }
 
 
@@ -81,6 +85,9 @@ main a:not(.btn):focus {
     display: flex;
     flex-direction: column;
     background: var(--card);
+    background-color: rgba(var(--card-rgb), var(--card-alpha));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-radius: 14px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     transition: background-color 0.2s ease;
