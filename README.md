@@ -2,13 +2,15 @@
 
 This repository contains the code for my personal website at **<https://vladi.no>**.
 
-It’s a small, hand-written site focused on clarity, calm design, and a light technical footprint.
+It’s a small, hand-written site focused on clarity, calm design, and a light technical footprint. The site is built
+with Jekyll so the shared layout, navigation, and theming stay in one place.
 
 ## Tech stack
 
-- **HTML** – simple static pages (`index.html`, `cv.html`, `portfolio.html`, `contact.html`)
+- **Jekyll** – shared layout, nav, and head/meta for all pages
+- **HTML** – page bodies with front matter (`index.html`, `cv.html`, `portfolio.html`, `contact.html`)
 - **CSS** – custom styles in `assets/css/styles.css`
-- **JavaScript** – a tiny script for theme toggling in `assets/js/theme.js`
+- **JavaScript** – theme toggling in `assets/js/theme.js` + nav prefetch in `assets/js/nav-prefetch.js`
 - **Hosting** – GitHub Pages, with a custom domain: `vladi.no`
 
 No build tools, no frameworks – just static files.
@@ -85,18 +87,18 @@ personal-site/
 
 ## Running locally
 
-Because this is a static site, you can open the files directly in your browser, but it’s nicer to use a simple local server (avoids some path / caching quirks):
+Install dependencies and start the dev server:
 
 ```bash
-# From the project root
-python -m http.server 8000
+bundle install
+bundle exec jekyll serve --livereload
 ```
 
 Then open:
 
-- `http://localhost:8000/index.html`
+- `http://localhost:4000/`
 
-Any other simple static server will work just as well.
+GitHub Pages also runs Jekyll, so the same layout is used in production.
 
 ## Deployment
 

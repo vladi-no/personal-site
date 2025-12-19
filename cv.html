@@ -1,214 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: CV – Vladino
+nav_active: cv
+---
 
-<head>
-    <script>
-        (function () {
-            try {
-                var saved = localStorage.getItem('theme');
-                var mode = saved;
+<h2>Curriculum Vitae</h2>
 
-                if (!mode) {
-                    var prefersDark = window.matchMedia &&
-                        window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    mode = prefersDark ? 'dark' : 'light';
-                }
+<p>
+    You can download a print-friendly PDF version of my CV here:
+</p>
+<div class="buttons">
+    <a class="btn" href="{{ '/assets/pdf/vladino-cv.pdf' | relative_url }}" target="_blank" rel="noopener">
+        Download CV (PDF)
+    </a>
+</div>
 
-                document.documentElement.setAttribute('data-theme', mode);
-            } catch (e) {
-                // if anything fails, fall back to light
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+<!-- PROFILE -->
+<h3>Profile</h3>
+<p>
+    I’m a software and AI engineer with a focus on building robust, reliable systems and
+    unlocking the practical value of machine learning. I enjoy working on products that
+    create real impact for people and communities, especially in areas like sustainability
+    and human rights. I work well in collaborative teams, like to keep communication clear,
+    and enjoy taking projects from idea to production.
+</p>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- EXPERIENCE -->
+<h3>Work experience</h3>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV – Vladino</title>
+<section>
+    <h4>SpotmyEnergy GmbH – Senior Software Engineer</h4>
+    <p><em>2025 – Present</em></p>
+    <ul>
+        <li>Developing and extending Odoo-based ERP modules in Python to support energy operations and internal workflows.</li>
+        <li>Building TypeScript data pipelines to ingest, process, and analyze smart meter and IoT data at scale.</li>
+        <li>Designing and implementing optimization software around smart meter data to improve energy usage, forecasting, and automation.</li>
+        <li>Collaborating with product and operations teams to turn business requirements into robust, maintainable technical solutions.</li>
+    </ul>
+</section>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+<section>
+    <h4>Sunvigo GmbH – Front-End and Back-End Software Engineer</h4>
+    <p><em>2022 – 2024</em></p>
+    <ul>
+        <li>Developed internal tools and customer-facing iOS/Android apps for a German solar energy company.</li>
+        <li>Built software that optimized operations and product workflows, reducing customer processing time by roughly 70–80%.</li>
+        <li>Automated centralization of inverter data from multiple manufacturers using Python and InfluxDB, improving data integration and monitoring.</li>
+    </ul>
+</section>
 
-<body>
-    <div class="container">
-        <header>
-            <div>vladi.no</div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="cv.html">CV</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-                <button id="themeToggle" class="theme-toggle" title="Toggle light/dark">🌞</button>
-            </nav>
-        </header>
+<section>
+    <h4>Vuvuu Software – Freelance Software and AI Engineer</h4>
+    <p><em>2014 – Present</em></p>
+    <ul>
+        <li>Delivered a range of small to medium-sized software projects, focusing on full-stack development and machine learning solutions.</li>
+        <li>Developed custom applications for Android, iOS, and the web using frameworks such as React, Angular, and Flutter.</li>
+        <li>Picked up and used a variety of frameworks across multiple languages to solve complex problems pragmatically.</li>
+        <li>Balanced innovation and efficiency to help clients achieve both technical and business goals.</li>
+    </ul>
+</section>
 
-        <main>
-            <h2>Curriculum Vitae</h2>
+<section>
+    <h4>VU Amsterdam / Bolesian / W4RA – AI Engineer</h4>
+    <p><em>2019 – 2022</em></p>
+    <ul>
+        <li>Developed an open-source platform for collecting speech data and training models for low-resource languages.</li>
+        <li>Led the creation of customizable speech recognition systems, free of charge for languages with limited vocabularies.</li>
+        <li>Applied the system successfully to learn and support Twi, a language spoken in Ghana, for community and educational use.</li>
+        <li>Contributed to a machine learning project using imaging technologies to detect road damage in the Netherlands.</li>
+    </ul>
+</section>
 
-            <p>
-                You can download a print-friendly PDF version of my CV here:
-            </p>
-            <div class="buttons">
-                <a class="btn" href="assets/pdf/vladino-cv.pdf" target="_blank" rel="noopener">
-                    Download CV (PDF)
-                </a>
-            </div>
+<section>
+    <h4>Vrije Universiteit Amsterdam – Lecturer and Evaluator (Master’s courses)</h4>
+    <p><em>2019 – 2022</em></p>
+    <ul>
+        <li>Delivered lectures in Master’s courses, created assignments, and evaluated student performance.</li>
+        <li>Designed course materials to be clear, accessible, and inclusive for students from diverse backgrounds.</li>
+    </ul>
+</section>
 
-            <!-- PROFILE -->
-            <h3>Profile</h3>
-            <p>
-                I’m a software and AI engineer with a focus on building robust, reliable systems and
-                unlocking the practical value of machine learning. I enjoy working on products that
-                create real impact for people and communities, especially in areas like sustainability
-                and human rights. I work well in collaborative teams, like to keep communication clear,
-                and enjoy taking projects from idea to production.
-            </p>
+<section>
+    <h4>Fawaka Ondernemersschool – Programming Teacher</h4>
+    <p><em>2018 – 2024</em></p>
+    <ul>
+        <li>Taught programming to students in Amsterdam middle schools, often from disadvantaged communities.</li>
+        <li>Used Arduino and Micro:bit-based robots with sensors, lights, and motors to make programming tangible and fun.</li>
+        <li>Guided students in building and programming robots, introducing core programming concepts in a hands-on way.</li>
+    </ul>
+</section>
 
-            <!-- EXPERIENCE -->
-            <h3>Work experience</h3>
+<section>
+    <h4>Bizboard – Front-End and Back-End Software Engineer</h4>
+    <p><em>2016 – 2018</em></p>
+    <ul>
+        <li>Developed cross-platform apps for iOS, Android, desktop, and web using tools such as React Native and Node.js.</li>
+        <li>Worked across the stack to deliver tailored software solutions for a variety of clients.</li>
+    </ul>
+</section>
 
-            <section>
-                <h4>SpotmyEnergy GmbH – Senior Software Engineer</h4>
-                <p><em>2025 – Present</em></p>
-                <ul>
-                    <li>Developing and extending Odoo-based ERP modules in Python to support energy operations and internal workflows.</li>
-                    <li>Building TypeScript data pipelines to ingest, process, and analyze smart meter and IoT data at scale.</li>
-                    <li>Designing and implementing optimization software around smart meter data to improve energy usage, forecasting, and automation.</li>
-                    <li>Collaborating with product and operations teams to turn business requirements into robust, maintainable technical solutions.</li>
-                </ul>
-            </section>
+<section>
+    <h4>Atlassian – Front-End and Back-End Software Engineer</h4>
+    <p><em>2013 – 2016</em></p>
+    <ul>
+        <li>Contributed to new features for Atlassian JIRA as part of the Amsterdam development team.</li>
+        <li>Worked in an agile environment on integrated products including JIRA, Confluence, Bamboo, Bitbucket, HipChat, and related tools.</li>
+    </ul>
+</section>
 
-            <section>
-                <h4>Sunvigo GmbH – Front-End and Back-End Software Engineer</h4>
-                <p><em>2022 – 2024</em></p>
-                <ul>
-                    <li>Developed internal tools and customer-facing iOS/Android apps for a German solar energy company.</li>
-                    <li>Built software that optimized operations and product workflows, reducing customer processing time by roughly 70–80%.</li>
-                    <li>Automated centralization of inverter data from multiple manufacturers using Python and InfluxDB, improving data integration and monitoring.</li>
-                </ul>
-            </section>
+<!-- EDUCATION -->
+<h3>Education</h3>
 
-            <section>
-                <h4>Vuvuu Software – Freelance Software and AI Engineer</h4>
-                <p><em>2014 – Present</em></p>
-                <ul>
-                    <li>Delivered a range of small to medium-sized software projects, focusing on full-stack development and machine learning solutions.</li>
-                    <li>Developed custom applications for Android, iOS, and the web using frameworks such as React, Angular, and Flutter.</li>
-                    <li>Picked up and used a variety of frameworks across multiple languages to solve complex problems pragmatically.</li>
-                    <li>Balanced innovation and efficiency to help clients achieve both technical and business goals.</li>
-                </ul>
-            </section>
+<section>
+    <h4>UVA / VU Amsterdam – Joint Master of Computer Science (AI specialization)</h4>
+    <p><em>2013 – 2016 · Thesis: 8.5 / 10.0</em></p>
+</section>
 
-            <section>
-                <h4>VU Amsterdam / Bolesian / W4RA – AI Engineer</h4>
-                <p><em>2019 – 2022</em></p>
-                <ul>
-                    <li>Developed an open-source platform for collecting speech data and training models for low-resource languages.</li>
-                    <li>Led the creation of customizable speech recognition systems, free of charge for languages with limited vocabularies.</li>
-                    <li>Applied the system successfully to learn and support Twi, a language spoken in Ghana, for community and educational use.</li>
-                    <li>Contributed to a machine learning project using imaging technologies to detect road damage in the Netherlands.</li>
-                </ul>
-            </section>
+<section>
+    <h4>University of Wisconsin – Bachelor and Master of Computer Science</h4>
+    <p><em>2009 – 2013 · GPA: 3.4 / 4.0</em></p>
+</section>
 
-            <section>
-                <h4>Vrije Universiteit Amsterdam – Lecturer and Evaluator (Master’s courses)</h4>
-                <p><em>2019 – 2022</em></p>
-                <ul>
-                    <li>Delivered lectures in Master’s courses, created assignments, and evaluated student performance.</li>
-                    <li>Designed course materials to be clear, accessible, and inclusive for students from diverse backgrounds.</li>
-                </ul>
-            </section>
+<!-- SKILLS -->
+<h3>Skills</h3>
+<ul>
+    <li><strong>Java:</strong> Spring Boot, Quarkus</li>
+    <li><strong>JavaScript:</strong> Node.js, React, Svelte</li>
+    <li><strong>TypeScript:</strong> Angular, NestJS</li>
+    <li><strong>Python:</strong> Django, Flask, PyTorch, TensorFlow</li>
+    <li><strong>Flutter:</strong> Dart</li>
+    <li><strong>Cloud & tooling:</strong> AWS, Azure, Google Cloud, Jupyter</li>
+    <li><strong>DevOps:</strong> Docker, Kubernetes</li>
+    <li><strong>Soft skills:</strong> Collaboration, communication, strategic thinking</li>
+</ul>
 
-            <section>
-                <h4>Fawaka Ondernemersschool – Programming Teacher</h4>
-                <p><em>2018 – 2024</em></p>
-                <ul>
-                    <li>Taught programming to students in Amsterdam middle schools, often from disadvantaged communities.</li>
-                    <li>Used Arduino and Micro:bit-based robots with sensors, lights, and motors to make programming tangible and fun.</li>
-                    <li>Guided students in building and programming robots, introducing core programming concepts in a hands-on way.</li>
-                </ul>
-            </section>
+<!-- LANGUAGES -->
+<h3>Languages</h3>
+<ul>
+    <li>English – fluent</li>
+    <li>Dutch – fluent</li>
+    <li>Spanish – fluent</li>
+    <li>Italian – fluent</li>
+    <li>German – intermediate</li>
+</ul>
 
-            <section>
-                <h4>Bizboard – Front-End and Back-End Software Engineer</h4>
-                <p><em>2016 – 2018</em></p>
-                <ul>
-                    <li>Developed cross-platform apps for iOS, Android, desktop, and web using tools such as React Native and Node.js.</li>
-                    <li>Worked across the stack to deliver tailored software solutions for a variety of clients.</li>
-                </ul>
-            </section>
-
-            <section>
-                <h4>Atlassian – Front-End and Back-End Software Engineer</h4>
-                <p><em>2013 – 2016</em></p>
-                <ul>
-                    <li>Contributed to new features for Atlassian JIRA as part of the Amsterdam development team.</li>
-                    <li>Worked in an agile environment on integrated products including JIRA, Confluence, Bamboo, Bitbucket, HipChat, and related tools.</li>
-                </ul>
-            </section>
-
-            <!-- EDUCATION -->
-            <h3>Education</h3>
-
-            <section>
-                <h4>UVA / VU Amsterdam – Joint Master of Computer Science (AI specialization)</h4>
-                <p><em>2013 – 2016 · Thesis: 8.5 / 10.0</em></p>
-            </section>
-
-            <section>
-                <h4>University of Wisconsin – Bachelor and Master of Computer Science</h4>
-                <p><em>2009 – 2013 · GPA: 3.4 / 4.0</em></p>
-            </section>
-
-            <!-- SKILLS -->
-            <h3>Skills</h3>
-            <ul>
-                <li><strong>Java:</strong> Spring Boot, Quarkus</li>
-                <li><strong>JavaScript:</strong> Node.js, React, Svelte</li>
-                <li><strong>TypeScript:</strong> Angular, NestJS</li>
-                <li><strong>Python:</strong> Django, Flask, PyTorch, TensorFlow</li>
-                <li><strong>Flutter:</strong> Dart</li>
-                <li><strong>Cloud & tooling:</strong> AWS, Azure, Google Cloud, Jupyter</li>
-                <li><strong>DevOps:</strong> Docker, Kubernetes</li>
-                <li><strong>Soft skills:</strong> Collaboration, communication, strategic thinking</li>
-            </ul>
-
-            <!-- LANGUAGES -->
-            <h3>Languages</h3>
-            <ul>
-                <li>English – fluent</li>
-                <li>Dutch – fluent</li>
-                <li>Spanish – fluent</li>
-                <li>Italian – fluent</li>
-                <li>German – intermediate</li>
-            </ul>
-
-            <!-- REFERENCES -->
-            <h3>References</h3>
-            <p>Available on request. Recent references include:</p>
-            <ul>
-                <li>
-                    <strong>Mehdi Bamou</strong> – Head of Technology, Sunvigo GmbH  
-                    <br>Phone: +49 173 4073886  
-                    <br>Email: mehdi.bamou@sunvigo.de
-                </li>
-                <li>
-                    <strong>Leonie Eigenbrodt</strong> – Head of Product Development, Sunvigo GmbH  
-                    <br>Phone: +49 172 5678848  
-                    <br>Email: leonie.eigenbrodt@sunvigo.de
-                </li>
-            </ul>
-        </main>
-    </div>
-
-    <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
+<!-- REFERENCES -->
+<h3>References</h3>
+<p>Available on request. Recent references include:</p>
+<ul>
+    <li>
+        <strong>Mehdi Bamou</strong> – Head of Technology, Sunvigo GmbH  
+        <br>Phone: +49 173 4073886  
+        <br>Email: mehdi.bamou@sunvigo.de
+    </li>
+    <li>
+        <strong>Leonie Eigenbrodt</strong> – Head of Product Development, Sunvigo GmbH  
+        <br>Phone: +49 172 5678848  
+        <br>Email: leonie.eigenbrodt@sunvigo.de
+    </li>
+</ul>

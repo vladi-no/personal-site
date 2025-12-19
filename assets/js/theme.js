@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setTheme(mode) {
         html.setAttribute('data-theme', mode);
+        html.style.colorScheme = mode === 'dark' ? 'dark' : 'light';
         localStorage.setItem('theme', mode);
 
         if (toggle) {

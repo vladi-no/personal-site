@@ -1,94 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Vladino – Software Engineer
+nav_active: home
+---
 
-<head>
-    <script>
-        (function () {
-            try {
-                var saved = localStorage.getItem('theme');
-                var mode = saved;
+<h2>Hi, I’m Vladino</h2>
+<p>Senior software engineer with Master’s degrees in Artificial Intelligence and Software Engineering,
+    building
+    reliable products across the stack.</p>
 
-                if (!mode) {
-                    var prefersDark = window.matchMedia &&
-                        window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    mode = prefersDark ? 'dark' : 'light';
-                }
+<h3>Skills</h3>
+<ul>
+    <li><strong>Languages:</strong> Python, JavaScript/TypeScript, Java, Go</li>
+    <li><strong>Frontend:</strong> React, Next.js, Svelte, HTML/CSS, Tailwind</li>
+    <li><strong>Backend:</strong> FastAPI, Django, Node.js, Spring Boot, REST/GraphQL</li>
+    <li><strong>AI / ML:</strong> TensorFlow, PyTorch, OpenAI APIs, model deployment</li>
+    <li><strong>Data:</strong> PostgreSQL, MongoDB, InfluxDB, Pandas</li>
+    <li><strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions, CI/CD</li>
+    <li><strong>Cloud:</strong> AWS, Google Cloud, Azure, Vercel, DigitalOcean</li>
+</ul>
 
-                document.documentElement.setAttribute('data-theme', mode);
-            } catch (e) {
-                // if anything fails, fall back to light
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
+<h3>Values</h3>
+<ul>
+    <li>Practical solutions that help people and the planet</li>
+    <li>Sustainability, conservation, improving people's lives</li>
+    <li>Open, accessible technology and clear communication</li>
+</ul>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<h3 id="contact">Contact</h3>
+<p>You can reach out to me via email or follow along on Instagram.</p>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vladino – Software Engineer</title>
+<div class="buttons">
+    <a class="btn" href="mailto:hello@vladi.no" target="_blank">Email me</a>
+    <a class="btn" href="https://github.com/vladi-no" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.instagram.com/vladinolo/" target="_blank" rel="noopener">Instagram</a>
+</div>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <header>
-            <div>vladi.no</div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="cv.html">CV</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-                <button id="themeToggle" class="theme-toggle" title="Toggle light/dark">🌞</button>
-            </nav>
-        </header>
-
-        <main>
-            <h2>Hi, I’m Vladino</h2>
-            <p>Senior software engineer with Master’s degrees in Artificial Intelligence and Software Engineering,
-                building
-                reliable products across the stack.</p>
-
-            <h3>Skills</h3>
-            <ul>
-                <li><strong>Languages:</strong> Python, JavaScript/TypeScript, Java, Go</li>
-                <li><strong>Frontend:</strong> React, Next.js, Svelte, HTML/CSS, Tailwind</li>
-                <li><strong>Backend:</strong> FastAPI, Django, Node.js, Spring Boot, REST/GraphQL</li>
-                <li><strong>AI / ML:</strong> TensorFlow, PyTorch, OpenAI APIs, model deployment</li>
-                <li><strong>Data:</strong> PostgreSQL, MongoDB, InfluxDB, Pandas</li>
-                <li><strong>DevOps:</strong> Docker, Kubernetes, GitHub Actions, CI/CD</li>
-                <li><strong>Cloud:</strong> AWS, Google Cloud, Azure, Vercel, DigitalOcean</li>
-            </ul>
-
-            <h3>Values</h3>
-            <ul>
-                <li>Practical solutions that help people and the planet</li>
-                <li>Sustainability, conservation, improving people's lives</li>
-                <li>Open, accessible technology and clear communication</li>
-            </ul>
-
-            <h3 id="contact">Contact</h3>
-            <p>You can reach out to me via email or follow along on Instagram.</p>
-
-            <div class="buttons">
-                <a class="btn" href="mailto:hello@vladi.no" target="_blank">Email me</a>
-                <a class="btn" href="https://github.com/vladi-no" target="_blank" rel="noopener">GitHub</a>
-                <a class="btn" href="https://www.instagram.com/vladinolo/" target="_blank" rel="noopener">Instagram</a>
-            </div>
-
-            <div class="footer">
-                I focus on building tools that work, solve real problems, and support positive outcomes.
-            </div>
-        </main>
-    </div>
-
-    <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
+<div class="footer">
+    I focus on building tools that work, solve real problems, and support positive outcomes.
+</div>

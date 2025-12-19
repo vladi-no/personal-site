@@ -1,67 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Contact – Vladino
+nav_active: contact
+---
 
-<head>
-    <script>
-        (function () {
-            try {
-                var saved = localStorage.getItem('theme');
-                var mode = saved;
+<h2 id="contact">Contact</h2>
+<p>You can reach out to me via email or follow along on Instagram.</p>
 
-                if (!mode) {
-                    var prefersDark = window.matchMedia &&
-                        window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    mode = prefersDark ? 'dark' : 'light';
-                }
-
-                document.documentElement.setAttribute('data-theme', mode);
-            } catch (e) {
-                // if anything fails, fall back to light
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact – Vladino</title>
-
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-
-<body>
-    <div class="container">
-        <header>
-            <div>vladi.no</div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="cv.html">CV</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-                <button id="themeToggle" class="theme-toggle" title="Toggle light/dark">🌞</button>
-            </nav>
-        </header>
-
-        <main>
-            <h2 id="contact">Contact</h2>
-            <p>You can reach out to me via email or follow along on Instagram.</p>
-
-            <div class="buttons">
-                <a class="btn" href="mailto:hello@vladi.no" target="_blank">Email me</a>
-                <a class="btn" href="https://github.com/vladi-no" target="_blank" rel="noopener">GitHub</a>
-                <a class="btn" href="https://www.instagram.com/vladinolo/" target="_blank" rel="noopener">Instagram</a>
-            </div>
-        </main>
-    </div>
-
-    <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
+<div class="buttons">
+    <a class="btn" href="mailto:hello@vladi.no" target="_blank">Email me</a>
+    <a class="btn" href="https://github.com/vladi-no" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.instagram.com/vladinolo/" target="_blank" rel="noopener">Instagram</a>
+</div>

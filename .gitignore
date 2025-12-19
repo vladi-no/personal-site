@@ -36,3 +36,9 @@ pnpm-debug.log*
 .env.*
 
 lake-copy.png
+
+# Jekyll
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/

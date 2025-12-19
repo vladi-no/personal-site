@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title | default: "Vladino" }}{% endif %}</title>
+
+  <style>
+    :root {
+      --accent: #006a71;
+      --accent-hover: #008492;
+      --accent-soft: #f6fbfc;
+      --bg: #faf8f6;
+      --fg: #111;
+      --card: #ffffff;
+      color-scheme: light;
+    }
+
+    [data-theme='dark'] {
+      --accent: #00b3b3;
+      --accent-hover: #33d0d0;
+      --accent-soft: #131c1d;
+      --bg: #111;
+      --fg: #f0f0f0;
+      --card: #1e1e1e;
+      color-scheme: dark;
+    }
+
+    /* Minimal first-paint styles to avoid flicker before external CSS loads */
+    html {
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+    }
+  </style>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      function applyTheme(mode) {
+        root.setAttribute('data-theme', mode);
+        root.style.colorScheme = mode === 'dark' ? 'dark' : 'light';
+      }
+
+      try {
+        var saved = localStorage.getItem('theme');
+        var mode = saved;
+
+        if (!mode) {
+          var prefersDark = window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
+          mode = prefersDark ? 'dark' : 'light';
+        }
+
+        applyTheme(mode);
+      } catch (e) {
+        applyTheme('light');
+      }
+    })();
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+  <div class="container">
+    <header>
+      <div>vladi.no</div>
+      <nav>
+        <a href="{{ '/' | relative_url }}" class="{% if page.nav_active == 'home' %}active{% endif %}" {% if page.nav_active == 'home' %}aria-current="page"{% endif %}>Home</a>
+        <a href="{{ '/cv.html' | relative_url }}" class="{% if page.nav_active == 'cv' %}active{% endif %}" {% if page.nav_active == 'cv' %}aria-current="page"{% endif %}>CV</a>
+        <a href="{{ '/portfolio.html' | relative_url }}" class="{% if page.nav_active == 'portfolio' %}active{% endif %}" {% if page.nav_active == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
+        <a href="{{ '/contact.html' | relative_url }}" class="{% if page.nav_active == 'contact' %}active{% endif %}" {% if page.nav_active == 'contact' %}aria-current="page"{% endif %}>Contact</a>
+        <button id="themeToggle" class="theme-toggle" title="Toggle light/dark">🌞</button>
+      </nav>
+    </header>
+
+    <main{% if page.main_class %} class="{{ page.main_class }}"{% endif %}>
+      {{ content }}
+    </main>
+  </div>
+
+  <script src="{{ '/assets/js/nav-prefetch.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+</body>
+
+</html>
