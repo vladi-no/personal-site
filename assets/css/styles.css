@@ -258,7 +258,7 @@ main>section p:last-child {
 
 .portrait img {
     width: 100%;
-    max-width: 220px;
+    max-width: 160px;
     display: block;
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
