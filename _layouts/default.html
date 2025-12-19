@@ -86,7 +86,6 @@
       <div>vladi.no</div>
       <nav>
         <a href="{{ '/' | relative_url }}" class="{% if page.nav_active == 'home' %}active{% endif %}" {% if page.nav_active == 'home' %}aria-current="page"{% endif %}>Home</a>
-        <a href="{{ '/cv.html' | relative_url }}" class="{% if page.nav_active == 'cv' %}active{% endif %}" {% if page.nav_active == 'cv' %}aria-current="page"{% endif %}>CV</a>
         <a href="{{ '/portfolio.html' | relative_url }}" class="{% if page.nav_active == 'portfolio' %}active{% endif %}" {% if page.nav_active == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
         <a href="{{ '/contact.html' | relative_url }}" class="{% if page.nav_active == 'contact' %}active{% endif %}" {% if page.nav_active == 'contact' %}aria-current="page"{% endif %}>Contact</a>
         <button id="themeToggle" class="theme-toggle" title="Toggle light/dark">🌞</button>
