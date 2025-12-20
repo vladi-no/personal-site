@@ -344,14 +344,16 @@ html:not([data-theme='dark']) .project-thumb img {
     }
 
     nav {
-        gap: 8px;
+        gap: 6px;
         flex-wrap: nowrap;
         justify-content: center;
+        overflow: hidden;
+        font-size: 0.95rem;
     }
 
     .theme-toggle {
         margin-left: 8px;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 }
 
