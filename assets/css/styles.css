@@ -106,11 +106,19 @@ header {
 
 /* ===== Navigation & Theme Toggle ===== */
 
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
 nav a {
-    margin-left: 16px;
+    margin: 0;
     text-decoration: none;
     color: var(--fg);
     transition: color 0.2s;
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -128,7 +136,7 @@ nav a[aria-current="page"] {
     border: none;
     cursor: pointer;
     font-size: 1.4rem;
-    margin-left: 16px;
+    margin-left: 12px;
     color: var(--fg);
     transition: transform 0.3s;
 }
@@ -327,6 +335,15 @@ html:not([data-theme='dark']) .project-thumb img {
 
     .project-thumb img {
         width: 60px;
+    }
+
+    nav {
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .theme-toggle {
+        margin-left: 8px;
     }
 }
 
