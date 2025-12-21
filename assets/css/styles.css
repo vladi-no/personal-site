@@ -73,6 +73,10 @@ main a:not(.btn):focus {
     color: var(--accent-hover);
 }
 
+.site-brand {
+    color: var(--fg);
+}
+
 
 /* ===== Layout ===== */
 

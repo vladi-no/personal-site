@@ -83,7 +83,9 @@
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
     <div class="container">
         <header>
-            <div>vladi.no</div>
+            <a class="site-brand" href="{{ '/' | relative_url }}">
+                <div>vladi.no</div>
+            </a>
             <nav>
                 <a href="{{ '/' | relative_url }}" class="{% if page.nav_active == 'home' %}active{% endif %}" {% if page.nav_active == 'home' %}aria-current="page"{% endif %}>Home</a>
                 <a href="{{ '/about.html' | relative_url }}" class="{% if page.nav_active == 'about' %}active{% endif %}" {% if page.nav_active == 'about' %}aria-current="page"{% endif %}>About</a>
