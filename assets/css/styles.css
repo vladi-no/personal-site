@@ -48,7 +48,7 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 
     /* lake background */
-    background-image: url('../img/lake.png');
+    background-image: url('../img/lake.png?v=2');
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% auto;
