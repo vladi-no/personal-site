@@ -84,7 +84,8 @@
     <div class="container">
         <header>
             <a class="site-brand" href="{{ '/' | relative_url }}">
-                <div>vladi.no</div>
+                <img src="{{ '/assets/img/vladino-logo.png' | relative_url }}" alt="Vladino logo">
+                <span>vladi.no</span>
             </a>
             <nav>
                 <a href="{{ '/' | relative_url }}" class="{% if page.nav_active == 'home' %}active{% endif %}" {% if page.nav_active == 'home' %}aria-current="page"{% endif %}>Home</a>

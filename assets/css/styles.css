@@ -107,6 +107,26 @@ header {
     font-weight: 600;
 }
 
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 0 0 auto;
+    text-decoration: none;
+}
+
+.site-brand img {
+    width: 40px;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+.site-brand span {
+    white-space: nowrap;
+}
+
 
 /* ===== Navigation & Theme Toggle ===== */
 
