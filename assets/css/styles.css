@@ -219,7 +219,7 @@ li {
 
 main>section {
     margin: 24px 0;
-    padding: 20px 20px;
+    padding: 14px 20px;
     border-radius: 12px;
     background: color-mix(in srgb, var(--accent-soft) calc(var(--section-soft-alpha) * 100%), transparent);
     border-left: 3px solid var(--accent);
