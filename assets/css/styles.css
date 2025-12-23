@@ -356,6 +356,10 @@ main>section p:last-child {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
+.project-thumb img + img {
+    margin-left: 20px;
+}
+
 .project-thumb img.theme-dark {
     display: none;
 }
