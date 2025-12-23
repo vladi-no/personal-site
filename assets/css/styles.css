@@ -454,6 +454,10 @@ html:not([data-theme='dark']) .project-thumb img {
         align-items: center;
     }
 
+    .buttons .bmc-btn {
+        margin-top: 10px;
+    }
+
     .btn {
         width: 100%;
         text-align: center;
