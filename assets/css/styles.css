@@ -320,7 +320,7 @@ main>section p:last-child {
 
 .portrait img {
     width: 100%;
-    max-width: 160px;
+    max-width: 130px;
     display: block;
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
@@ -404,6 +404,61 @@ html:not([data-theme='dark']) .project-thumb img {
 }
 
 @media (max-width: 600px) {
+    body {
+        background-attachment: scroll !important;
+    }
+
+    .container {
+        margin: 20px;
+        padding: 24px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 6px;
+        flex-wrap: nowrap;
+        justify-content: center;
+        overflow: hidden;
+        font-size: 0.95rem;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .theme-toggle {
+        margin-left: 8px;
+        font-size: 1.1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
     .project-header {
         flex-direction: column;
         align-items: center;
@@ -422,97 +477,20 @@ html:not([data-theme='dark']) .project-thumb img {
         width: 60px;
     }
 
-    .portrait-left {
-        float: none;
-        width: 100%;
-        max-width: none;
-        margin: 20px 0 32px;
-    }
-
-    .portrait-left img {
-        max-width: 160px;
-        margin-inline: auto;
-    }
-
-    nav {
-        gap: 6px;
-        flex-wrap: nowrap;
-        justify-content: center;
-        overflow: hidden;
-        font-size: 0.95rem;
-    }
-
-    .theme-toggle {
-        margin-left: 8px;
-        font-size: 1.1rem;
-    }
-
     .about-intro {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 16px;
+        margin-bottom: 40px;
     }
 
     .about-intro .portrait img {
         max-width: 160px;
     }
-}
 
-
-/* ===== Mobile ≤ 600px ===== */
-
-@media (max-width: 600px) {
-    body {
-        background-attachment: scroll !important;
-    }
-
-    .container {
-        margin: 20px;
-        padding: 24px;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        column-gap: 12px;
-        row-gap: 6px;
-    }
-
-    nav a {
-        margin: 0;
-    }
-
-    .theme-toggle {
-        margin-left: auto;
-        font-size: 1.4rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-    h3 {
-        font-size: 1.25rem;
-    }
-
-    .buttons {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
+    .about-intro p {
+        padding-top: 10px;
+        flex: 1 1 auto;
     }
 }
