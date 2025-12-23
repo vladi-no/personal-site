@@ -376,6 +376,33 @@ html:not([data-theme='dark']) .project-thumb img {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+.about-intro {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 24px;
+    margin-bottom: 38px;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.about-intro .portrait {
+    margin: 0;
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.about-intro .portrait img {
+    max-width: 130px;
+}
+
+.about-intro p {
+    flex: 1 1 280px;
+    margin: 0;
+    line-height: 1.5;
+}
+
 @media (max-width: 600px) {
     .project-header {
         flex-direction: column;
@@ -395,6 +422,18 @@ html:not([data-theme='dark']) .project-thumb img {
         width: 60px;
     }
 
+    .portrait-left {
+        float: none;
+        width: 100%;
+        max-width: none;
+        margin: 20px 0 32px;
+    }
+
+    .portrait-left img {
+        max-width: 160px;
+        margin-inline: auto;
+    }
+
     nav {
         gap: 6px;
         flex-wrap: nowrap;
@@ -406,6 +445,16 @@ html:not([data-theme='dark']) .project-thumb img {
     .theme-toggle {
         margin-left: 8px;
         font-size: 1.1rem;
+    }
+
+    .about-intro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-intro .portrait img {
+        max-width: 160px;
     }
 }
 
