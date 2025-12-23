@@ -278,6 +278,30 @@ main>section p:last-child {
     color: #ffffff;
 }
 
+.bmc-btn {
+    display: inline-flex;
+    align-items: center;
+}
+
+.bmc-btn img {
+    height: 44px;
+    width: auto;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.bmc-btn:hover img {
+    transform: translateY(-1px) scale(1.015);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+.bmc-btn:active img {
+    transform: translateY(0) scale(0.995);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.14);
+}
+
 
 /* ===== Footer ===== */
 
