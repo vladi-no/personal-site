@@ -28,8 +28,21 @@ html, body {
   line-height: 1.55;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* Links: green + no underline (modern) */
+a {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active,
+a:visited {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+a:hover { opacity: 0.85; }
 
 .booklet {
   max-width: 920px;
@@ -238,6 +251,6 @@ h1 {
     border-radius: 0;
     padding: 0;
   }
-  a { text-decoration: underline; color: #000; }
+  a { text-decoration: none; color: #000; } /* keep no underline even when printing */
   .toc a::after { content: " (" attr(href) ")"; font-size: 11px; color: #444; }
 }
