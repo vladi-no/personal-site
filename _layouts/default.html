@@ -86,9 +86,9 @@
                     "source": "list",
                     "urls": [
                         "{{ '/' | relative_url }}",
-                        "{{ '/about/' | relative_url }}",
-                        "{{ '/portfolio/' | relative_url }}",
-                        "{{ '/contact/' | relative_url }}"
+                        "{{ '/about' | relative_url }}",
+                        "{{ '/portfolio' | relative_url }}",
+                        "{{ '/contact' | relative_url }}"
                     ]
                 }
             ],
@@ -114,9 +114,9 @@
             </a>
             <nav>
                 <a href="{{ '/' | relative_url }}" class="{% if page.nav_active == 'home' %}active{% endif %}" {% if page.nav_active == 'home' %}aria-current="page"{% endif %}>Home</a>
-                <a href="{{ '/about/' | relative_url }}" class="{% if page.nav_active == 'about' %}active{% endif %}" {% if page.nav_active == 'about' %}aria-current="page"{% endif %}>About</a>
-                <a href="{{ '/portfolio/' | relative_url }}" class="{% if page.nav_active == 'portfolio' %}active{% endif %}" {% if page.nav_active == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
-                <a href="{{ '/contact/' | relative_url }}" class="{% if page.nav_active == 'contact' %}active{% endif %}" {% if page.nav_active == 'contact' %}aria-current="page"{% endif %}>Contact</a>
+                <a href="{{ '/about' | relative_url }}" class="{% if page.nav_active == 'about' %}active{% endif %}" {% if page.nav_active == 'about' %}aria-current="page"{% endif %}>About</a>
+                <a href="{{ '/portfolio' | relative_url }}" class="{% if page.nav_active == 'portfolio' %}active{% endif %}" {% if page.nav_active == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
+                <a href="{{ '/contact' | relative_url }}" class="{% if page.nav_active == 'contact' %}active{% endif %}" {% if page.nav_active == 'contact' %}aria-current="page"{% endif %}>Contact</a>
                 <button id="themeToggle" class="theme-toggle" title="Toggle light/dark" aria-label="Toggle light/dark"></button>
             </nav>
         </header>
