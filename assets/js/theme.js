@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', mode);
 
         if (toggle) {
-            toggle.textContent = (mode === 'dark') ? '🌚' : '🌞';
+            toggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
         }
     }
 

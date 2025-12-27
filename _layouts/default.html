@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title | default: "Vladino" }}{% endif %}</title>
 
     <style>
@@ -78,6 +79,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <script type="speculationrules">
+        {
+            "prefetch": [
+                {
+                    "source": "list",
+                    "urls": [
+                        "{{ '/' | relative_url }}",
+                        "{{ '/about/' | relative_url }}",
+                        "{{ '/portfolio/' | relative_url }}",
+                        "{{ '/contact/' | relative_url }}"
+                    ]
+                }
+            ],
+            "prerender": [
+                {
+                    "source": "document",
+                    "where": {
+                        "selector_matches": "nav a[href]"
+                    },
+                    "eagerness": "moderate"
+                }
+            ]
+        }
+    </script>
 </head>
 
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
@@ -92,7 +117,7 @@
                 <a href="{{ '/about/' | relative_url }}" class="{% if page.nav_active == 'about' %}active{% endif %}" {% if page.nav_active == 'about' %}aria-current="page"{% endif %}>About</a>
                 <a href="{{ '/portfolio/' | relative_url }}" class="{% if page.nav_active == 'portfolio' %}active{% endif %}" {% if page.nav_active == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
                 <a href="{{ '/contact/' | relative_url }}" class="{% if page.nav_active == 'contact' %}active{% endif %}" {% if page.nav_active == 'contact' %}aria-current="page"{% endif %}>Contact</a>
-                <button id="themeToggle" class="theme-toggle" title="Toggle light/dark">🌞</button>
+                <button id="themeToggle" class="theme-toggle" title="Toggle light/dark" aria-label="Toggle light/dark"></button>
             </nav>
         </header>
 

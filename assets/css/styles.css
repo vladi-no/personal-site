@@ -55,6 +55,47 @@ body {
     background-attachment: fixed;
 }
 
+/* ===== View transitions ===== */
+
+@view-transition {
+    navigation: auto;
+}
+
+@supports (view-transition-name: none) {
+    main {
+        view-transition-name: main-content;
+    }
+
+    ::view-transition-old(main-content) {
+        animation: vt-fade-out 180ms cubic-bezier(0.2, 0.6, 0.3, 1) both;
+    }
+
+    ::view-transition-new(main-content) {
+        animation: vt-fade-in 240ms cubic-bezier(0.2, 0.6, 0.3, 1) both;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}
+
+@keyframes vt-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(3px);
+    }
+}
+
+@keyframes vt-fade-out {
+    to {
+        opacity: 0;
+        transform: translateY(-2px);
+    }
+}
+
 /* ===== Links ===== */
 
 a {
@@ -168,7 +209,17 @@ nav a,
     font-size: 1.4rem;
     margin-left: 12px;
     color: var(--fg);
+    line-height: 1;
     transition: transform 0.3s;
+}
+
+.theme-toggle::before {
+    content: "🌞";
+    display: inline-block;
+}
+
+html[data-theme='dark'] .theme-toggle::before {
+    content: "🌚";
 }
 
 @media (hover: hover) {

@@ -1,4 +1,12 @@
 (function () {
+  if (
+    window.HTMLScriptElement &&
+    HTMLScriptElement.supports &&
+    HTMLScriptElement.supports('speculationrules')
+  ) {
+    return;
+  }
+
   function prefetch(link) {
     if (!link || link.dataset.prefetched === 'true') return;
 
