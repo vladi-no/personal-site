@@ -10,7 +10,7 @@ with Jekyll so the shared layout, navigation, and theming stay in one place.
 - **Jekyll** – shared layout, nav, and head/meta for all pages
 - **HTML** – page bodies with front matter (`index.html`, `about.html`, `cv.html`, `portfolio.html`, `contact.html`)
 - **CSS** – custom styles in `assets/css/styles.css`
-- **JavaScript** – theme toggling in `assets/js/theme.js` + nav prefetch in `assets/js/nav-prefetch.js`
+- **JavaScript** – theme toggling in `assets/js/theme.js` + nav prefetch fallback in `assets/js/nav-prefetch.js`
 - **Hosting** – GitHub Pages, with a custom domain: `vladi.no`
 
 No build tools, no frameworks – just static files.
@@ -20,6 +20,10 @@ No build tools, no frameworks – just static files.
 - **Light / dark mode**
   - Stored in `localStorage` and applied before first paint to avoid flicker.
   - Toggle button (sun/moon) in the top navigation.
+- **Smoother navigation**
+  - View Transitions for same-origin page changes (snappy cross-fades between pages).
+  - Speculation Rules to prefetch/prerender nav pages when supported.
+  - JS prefetch fallback for browsers without Speculation Rules.
 - **Responsive layout**
   - Single centered card (`.container`) with a max width of 680px.
   - Mobile-friendly layout via a small set of media queries.
@@ -67,9 +71,11 @@ Each project section briefly describes the context, goals, and tech used.
 ```text
 personal-site/
   index.html
+  about.html
   cv.html
   portfolio.html
   contact.html
+  cabin-fever-booklet.html
   CNAME
   apple-touch-icon.png
   favicon-16x16.png
@@ -80,6 +86,7 @@ personal-site/
     css/
       styles.css
     js/
+      nav-prefetch.js
       theme.js
     img/
       lake.png
