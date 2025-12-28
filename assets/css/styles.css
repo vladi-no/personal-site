@@ -75,10 +75,25 @@ body {
     }
 }
 
+[data-initial-load='true'] .container {
+    transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+@starting-style {
+    [data-initial-load='true'] .container {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     ::view-transition-old(*),
     ::view-transition-new(*) {
         animation: none !important;
+    }
+
+    [data-initial-load='true'] .container {
+        transition: none;
     }
 }
 

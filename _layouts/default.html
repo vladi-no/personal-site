@@ -45,6 +45,20 @@
     <script>
         (function () {
             var root = document.documentElement;
+            var isInitialLoad = false;
+
+            try {
+                if (window.sessionStorage && !sessionStorage.getItem('initial-load')) {
+                    sessionStorage.setItem('initial-load', 'true');
+                    isInitialLoad = true;
+                }
+            } catch (e) {
+                isInitialLoad = true;
+            }
+
+            if (isInitialLoad) {
+                root.setAttribute('data-initial-load', 'true');
+            }
 
             function applyTheme(mode) {
                 root.setAttribute('data-theme', mode);
@@ -76,6 +90,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="{{ '/assets/css/styles.css' | relative_url }}" as="style">
+    <link rel="preload" href="{{ '/assets/img/vladino-logo.png' | relative_url }}" as="image">
+    <link rel="preload" href="{{ '/assets/img/lake.png?v=2' | relative_url }}" as="image">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
@@ -98,7 +115,7 @@
                     "where": {
                         "selector_matches": "nav a[href]"
                     },
-                    "eagerness": "moderate"
+                    "eagerness": "eager"
                 }
             ]
         }
