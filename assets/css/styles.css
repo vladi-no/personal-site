@@ -42,7 +42,7 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh; /* make sure body fills screen */
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: var(--bg);
     color: var(--fg);
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -200,6 +200,7 @@ nav a {
     color: var(--fg);
     transition: color 0.2s;
     white-space: nowrap;
+    font-weight: 600;
 }
 
 nav a:hover {
@@ -250,6 +251,7 @@ h1,
 h2,
 h3 {
     margin-top: 0;
+    font-weight: 600;
 }
 
 h1 {
@@ -269,6 +271,11 @@ h3 {
 
 p {
     line-height: 1.6;
+}
+
+strong,
+b {
+    font-weight: 600;
 }
 
 ul {
