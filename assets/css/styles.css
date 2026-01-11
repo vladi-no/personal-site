@@ -294,8 +294,9 @@ main>section {
     margin: 24px 0;
     padding: 14px 20px;
     border-radius: 12px;
-    background: color-mix(in srgb, var(--accent-soft) calc(var(--section-soft-alpha) * 100%), transparent);
+    background-color: color-mix(in srgb, var(--accent-soft) calc(var(--section-soft-alpha) * 100%), transparent);
     border-left: 3px solid var(--accent);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 main>section h3,
@@ -427,8 +428,10 @@ main>section p:last-child {
 }
 
 .project-thumb img {
+    display: block;
     width: 60px;
-    height: auto;
+    height: 60px;
+    object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
@@ -443,6 +446,7 @@ main>section p:last-child {
 
 html[data-theme='dark'] .project-thumb img.theme-dark {
     display: block;
+    margin-left: 0;
 }
 
 html[data-theme='dark'] .project-thumb img.theme-light {
@@ -556,6 +560,7 @@ html:not([data-theme='dark']) .project-thumb img {
 
     .project-thumb img {
         width: 60px;
+        height: 60px;
     }
 
     .about-intro {
