@@ -40,6 +40,12 @@
             background: var(--bg);
             color: var(--fg);
         }
+
+        html[data-initial-load='true'] body,
+        html[data-initial-load='true'] .container,
+        html[data-initial-load='true'] main > section {
+            transition: none !important;
+        }
     </style>
 
     <script>
