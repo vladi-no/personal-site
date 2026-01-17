@@ -18,7 +18,11 @@
   --diamond:#e11d48; /* red */
 }
 
-*{ box-sizing:border-box; }
+*{
+  box-sizing:border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
 html,body{ height:100%; }
 body{
   margin:0;
@@ -178,10 +182,6 @@ code{
 .chip .small{
   font-size: .9rem;
   font-weight: 650;
-}
-.chipA{
-  background: linear-gradient(180deg, rgba(246,196,83,.24), rgba(0,0,0,.18));
-  border-color: rgba(246,196,83,.28);
 }
 
 .handList{
