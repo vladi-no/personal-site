@@ -203,6 +203,10 @@ h3 {
   line-height: 1.55;
 }
 
+#subtitleText {
+  min-block-size: 3.2em;
+}
+
 .muted {
   margin: 8px 0 0;
   color: var(--muted);
@@ -249,6 +253,9 @@ h3 {
 
 .btn {
   height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 12px;
   border: 1px solid var(--btn-border);
   background: var(--accent);
@@ -257,6 +264,12 @@ h3 {
   padding: 0 16px;
   cursor: pointer;
   white-space: nowrap;
+}
+
+#themeToggleButton,
+#resetButton,
+#printButton {
+  inline-size: 148px;
 }
 
 .btn:hover {
@@ -279,6 +292,7 @@ h3 {
 
 .tab-list {
   display: inline-grid;
+  inline-size: 198px;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
   padding: 6px;
@@ -477,22 +491,38 @@ input[type="range"] {
 .timeline-item {
   border: 1px solid var(--timeline-border);
   border-radius: 12px;
-  padding: 12px;
+  padding: 8px 12px;
   background: var(--timeline-bg);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px 14px;
+  gap: 6px 10px;
+  block-size: 84px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.timeline-item > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .timeline-item h3 {
   margin: 0;
   font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .timeline-item p {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .timeline-time {
@@ -580,16 +610,35 @@ input[type="range"] {
     flex: 1 1 calc(50% - 5px);
   }
 
+  .tab-list {
+    inline-size: 100%;
+  }
+
+  #themeToggleButton,
+  #resetButton,
+  #printButton {
+    inline-size: auto;
+  }
+
+  #subtitleText {
+    min-block-size: 0;
+  }
+
   .stats {
     grid-template-columns: 1fr 1fr;
   }
 
   .timeline-item {
     grid-template-columns: 1fr;
+    block-size: auto;
   }
 
   .timeline-time {
     text-align: left;
+  }
+
+  .timeline-item h3 {
+    white-space: normal;
   }
 }
 
