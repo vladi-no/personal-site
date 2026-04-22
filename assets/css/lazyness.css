@@ -43,6 +43,12 @@ body {
   padding-bottom: 24px;
 }
 
+.header-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .kicker {
   margin: 0 0 10px;
   color: var(--kicker);
@@ -50,6 +56,20 @@ body {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.draft-badge {
+  margin: 0 0 10px;
+  padding: 3px 8px;
+  border: 1px solid #c8d3e7;
+  border-radius: 999px;
+  background: #edf2fc;
+  color: #3f4a5e;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
