@@ -1,0 +1,214 @@
+---
+layout: none
+title: Easy Sourdough Planner
+permalink: /sourdough
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Easy Sourdough Planner</title>
+  <meta name="description" content="Mobile-friendly sourdough calculator and timeline planner." />
+  <link rel="stylesheet" href="{{ '/assets/css/sourdough.css' | relative_url }}" />
+  <script src="{{ '/assets/js/sourdough.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="hero card">
+      <div class="hero-head">
+        <div class="hero-copy">
+          <h1 id="titleText">Easy Sourdough Planner</h1>
+          <p id="subtitleText" class="subtitle">
+            Adjust hydration, starter, and flour mix, then get ingredients
+            and a full baking schedule.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button id="langEnButton" class="lang-btn is-active" type="button">EN</button>
+            <button id="langDeButton" class="lang-btn" type="button">DE</button>
+          </div>
+          <button id="themeToggleButton" class="btn btn-ghost" type="button">Dark mode</button>
+          <button id="resetButton" class="btn btn-ghost" type="button">Reset</button>
+          <button id="printButton" class="btn" type="button">Print Recipe</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="tabs">
+      <div class="tab-list" role="tablist" aria-label="Sourdough planner tabs">
+        <button id="tabRecipeButton" class="tab is-active" data-tab-target="recipe" type="button" role="tab" aria-selected="true">Recipe</button>
+        <button id="tabScheduleButton" class="tab" data-tab-target="schedule" type="button" role="tab" aria-selected="false">Schedule</button>
+      </div>
+    </section>
+
+    <section class="tab-panel is-active" data-tab-panel="recipe">
+      <div class="layout-grid">
+        <article class="card">
+          <h2 id="doughSettingsTitle">Dough Settings</h2>
+          <p id="doughSettingsText" class="muted">Set your dough inputs and tune the recipe.</p>
+
+          <div class="field-grid">
+            <label class="field">
+              <span id="totalFlourLabel">Total flour (g)</span>
+              <input id="totalFlourInput" type="number" min="100" step="25" />
+            </label>
+            <label class="field">
+              <span id="loafCountLabel">Loaf count</span>
+              <select id="loafCountSelect">
+                <option id="loafOption1" value="1">1 loaf</option>
+                <option id="loafOption2" value="2">2 loaves</option>
+                <option id="loafOption3" value="3">3 loaves</option>
+                <option id="loafOption4" value="4">4 loaves</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span id="flourMixLabel">Flour mix</span>
+            <select id="flourPresetSelect">
+              <option id="flourOptionWheat" value="wheat">100% Wheat</option>
+              <option id="flourOptionWheatRye" value="wheat-rye">60% Wheat / 40% Rye</option>
+              <option id="flourOptionCountry" value="country">85% Bread Flour / 15% Whole Wheat</option>
+            </select>
+          </label>
+
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <label id="hydrationLabel" for="hydrationRange">Hydration</label>
+              <output id="hydrationValue">70%</output>
+            </div>
+            <input id="hydrationRange" type="range" min="50" max="100" step="1" />
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <label id="starterPercentLabel" for="starterRange">Starter percentage</label>
+              <output id="starterValue">26%</output>
+            </div>
+            <input id="starterRange" type="range" min="10" max="40" step="1" />
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <label id="saltPercentLabel" for="saltRange">Salt percentage</label>
+              <output id="saltValue">2%</output>
+            </div>
+            <input id="saltRange" type="range" min="1.5" max="3" step="0.1" />
+          </div>
+        </article>
+
+        <aside class="stack">
+          <article class="card">
+            <h2 id="glanceTitle">At A Glance</h2>
+            <p id="glanceText" class="muted">Calculated recipe totals.</p>
+            <div class="stats">
+              <div class="stat">
+                <span id="totalDoughLabel">Total dough</span>
+                <strong id="totalDoughOutput">0 g</strong>
+              </div>
+              <div class="stat">
+                <span id="perLoafLabel">Per loaf</span>
+                <strong id="perLoafOutput">0 g</strong>
+              </div>
+              <div class="stat">
+                <span id="waterLabel">Water</span>
+                <strong id="waterOutput">0 g</strong>
+              </div>
+              <div class="stat">
+                <span id="starterLabel">Starter</span>
+                <strong id="starterOutput">0 g</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2 id="ingredientsTitle">Ingredients</h2>
+            <p id="ingredientsMuted" class="muted">Based on 60% Wheat / 40% Rye.</p>
+
+            <section class="ingredient-block">
+              <h3 id="flourBreakdownTitle">Flour breakdown</h3>
+              <ul id="flourBreakdownList" class="line-list"></ul>
+            </section>
+
+            <details class="ingredient-details" open>
+              <summary id="prefermentSummary">Preferment / starter build</summary>
+              <ul id="prefermentList" class="line-list"></ul>
+            </details>
+
+            <details class="ingredient-details">
+              <summary id="finalMixSummary">Final dough mix</summary>
+              <ul id="finalMixList" class="line-list"></ul>
+            </details>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="tab-panel" data-tab-panel="schedule">
+      <div class="layout-grid schedule-grid">
+        <article class="card">
+          <h2 id="bakePlanTitle">Bake Plan</h2>
+          <p id="bakePlanText" class="muted">Choose your bake date/time and the timeline updates automatically.</p>
+
+          <div class="field-grid">
+            <label class="field">
+              <span id="bakeDateLabel">Bake date</span>
+              <input id="bakeDateInput" type="date" />
+            </label>
+            <label class="field">
+              <span id="bakeTimeLabel">Bake time</span>
+              <input id="bakeTimeInput" type="time" />
+            </label>
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <label id="starterLeadLabel" for="starterLeadRange">Starter lead time</label>
+              <output id="starterLeadValue">12h</output>
+            </div>
+            <input id="starterLeadRange" type="range" min="6" max="18" step="1" />
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <label id="autolyseLabel" for="autolyseRange">Autolyse</label>
+              <output id="autolyseValue">1h</output>
+            </div>
+            <input id="autolyseRange" type="range" min="0" max="4" step="0.5" />
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <label id="bulkLabel" for="bulkRange">Bulk fermentation</label>
+              <output id="bulkValue">5h</output>
+            </div>
+            <input id="bulkRange" type="range" min="3" max="8" step="0.5" />
+          </div>
+
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <label id="coldProofLabel" for="coldRange">Cold proof</label>
+              <output id="coldValue">20h</output>
+            </div>
+            <input id="coldRange" type="range" min="8" max="36" step="1" />
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 id="timelineTitle">Timeline</h2>
+          <p id="timelineText" class="muted">A step-by-step plan from starter feed to bake.</p>
+          <ul id="timelineList" class="timeline"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="note card">
+      <p id="noteText">
+        Practical sourdough recipe math with adjustable ingredients and timeline planning.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
