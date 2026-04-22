@@ -60,6 +60,14 @@ h1 {
   font-weight: 700;
 }
 
+.meta-date {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
 .standfirst {
   margin: 14px 0 0;
   color: var(--muted);
