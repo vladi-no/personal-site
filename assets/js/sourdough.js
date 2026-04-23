@@ -24,7 +24,7 @@
       flourOptionWheatRye: "60% Wheat / 40% Rye",
       flourOptionCountry: "85% Bread Flour / 15% Whole Wheat",
       hydrationLabel: "Hydration",
-      starterPercentLabel: "Starter percentage",
+      starterPercentLabel: "Prefermented flour",
       saltPercentLabel: "Salt percentage",
       glanceTitle: "At A Glance",
       glanceText: "Calculated recipe totals.",
@@ -46,8 +46,8 @@
       bulkLabel: "Bulk fermentation",
       coldProofLabel: "Cold proof",
       timelineTitle: "Timeline",
-      timelineText: "Detailed day-by-day baking plan.",
-      noteText: "Practical sourdough recipe math with adjustable ingredients and timeline planning.",
+      timelineText: "Step-by-step baking script with practical cues.",
+      noteText: "Baker's percentages: starter assumes 100% hydration, and starter percentage is prefermented flour.",
       phaseEvening: "Evening",
       phaseMainDay: "Main Day",
       phaseBakeDay: "Bake Day",
@@ -64,35 +64,35 @@
       salt: "Salt",
       ripeStarter: "Ripe starter",
       stepFeedTitle: "Build starter",
-      stepFeedDesc: "Feed starter so it peaks by mixing time.",
+      stepFeedDesc: "Use ratio 1:6:6 (for example 20g starter + 120g flour + 120g water) so it peaks before autolyse.",
       stepStarterCheckTitle: "Starter check",
-      stepStarterCheckDesc: "Is it doubled and bubbly? If not, give it extra warmth.",
+      stepStarterCheckDesc: "Should be doubled and bubbly. If weak, give it 20-30 min in a warmer spot.",
       stepAutolyseTitle: "Autolyse",
-      stepAutolyseDesc: "Mix flour and water, then rest before adding starter and salt.",
+      stepAutolyseDesc: "Mix flour and water only. Rest dough before starter and salt.",
       stepAddStarterTitle: "Add starter + salt",
-      stepAddStarterDesc: "Fold in starter and salt, then rest.",
+      stepAddStarterDesc: "Fold in ripe starter and salt until evenly combined, then let dough relax.",
       stepStretchFoldTitle: "Stretch & fold",
-      stepStretchFoldDesc: "3-4 rounds with at least 30 min between rounds.",
+      stepStretchFoldDesc: "Do 3-4 rounds, each 30 min apart, until dough gains strength.",
       stepJiggleTitle: "Jiggle test",
-      stepJiggleDesc: "Dough should wobble and release from bowl before shaping.",
+      stepJiggleDesc: "Dough should wobble and pull from the bowl edges before shaping.",
       stepShapeTitle: "Shape",
-      stepShapeDesc: "Pre-shape, rest, final shape, then into basket.",
+      stepShapeDesc: "Pre-shape, bench rest, final shape, then place in proofing basket seam up.",
       stepColdTitle: "Cold Proof",
-      stepColdDesc: "Shape the dough, refrigerate, and bake straight from cold.",
+      stepColdDesc: "Refrigerate covered. Bake directly from cold for best scoring control.",
       stepPreheatTitle: "Preheat oven",
-      stepPreheatDesc: "Heat oven and dutch oven before baking.",
+      stepPreheatDesc: "Preheat oven and dutch oven to 250 C at least 1 hour before bake.",
       stepBakeTitle: "Bake",
-      stepBakeDesc: "Score, steam, and bake until deeply browned.",
+      stepBakeDesc: "Score, load into hot pot, add steam, bake 35 min at 250 C with lid, then 15-20 min at 200 C without lid.",
       stepCoolTitle: "Cool down",
-      stepCoolDesc: "Let bread cool before slicing.",
-      durQuickCheck: "just before autolyse",
-      durAutolyse: "30-60 min",
-      durAddStarter: "30-60 min",
-      durStretchFold: "3-4 rounds, 30 min apart",
-      durJiggle: "~1h before shaping",
-      durShape: "~30 min",
+      stepCoolDesc: "Cool on rack at least 1-2 hours before slicing.",
+      durQuickCheck: "quick check right before autolyse",
+      durAutolyse: "rest 30-60 min",
+      durAddStarter: "mix + rest 30-60 min",
+      durStretchFold: "3-4 rounds, every 30 min",
+      durJiggle: "target: about 1h before shaping",
+      durShape: "about 30 min total",
       durCold: "{hours}h",
-      durPreheat: "1h before baking",
+      durPreheat: "start 1h before bake",
       durBake: "50-55 min",
       durCool: "1-2h",
       hourShort: "h"
@@ -119,7 +119,7 @@
       flourOptionWheatRye: "60% Weizen / 40% Roggen",
       flourOptionCountry: "85% Brotmehl / 15% Vollkornweizen",
       hydrationLabel: "Hydration",
-      starterPercentLabel: "Starter-Anteil",
+      starterPercentLabel: "Versaeuertes Mehl",
       saltPercentLabel: "Salz-Anteil",
       glanceTitle: "Uebersicht",
       glanceText: "Berechnete Rezeptwerte.",
@@ -141,8 +141,8 @@
       bulkLabel: "Stockgare",
       coldProofLabel: "Kalte Gare",
       timelineTitle: "Zeitablauf",
-      timelineText: "Detaillierter Backplan nach Tagen.",
-      noteText: "Praktische Sauerteig-Rezeptberechnung mit anpassbaren Zutaten und Zeitplanung.",
+      timelineText: "Schritt-fuer-Schritt Backskript mit praktischen Hinweisen.",
+      noteText: "Baeckerprozente: Starter mit 100% Hydration, Starter-Prozent entspricht versaeuertem Mehl.",
       phaseEvening: "Vorabend",
       phaseMainDay: "Haupttag",
       phaseBakeDay: "Backtag",
@@ -159,35 +159,35 @@
       salt: "Salz",
       ripeStarter: "Reifer Starter",
       stepFeedTitle: "Starter ansetzen",
-      stepFeedDesc: "Starter so fuettern, dass er zur Mischzeit am Peak ist.",
+      stepFeedDesc: "Ratio 1:6:6 (z.B. 20g Starter + 120g Mehl + 120g Wasser), damit er vor der Autolyse am Peak ist.",
       stepStarterCheckTitle: "Starter-Check",
-      stepStarterCheckDesc: "Verdoppelt und blubbrig? Sonst kurz waermer stellen.",
+      stepStarterCheckDesc: "Sollte verdoppelt und blubbrig sein. Falls trage: 20-30 Min waermer stellen.",
       stepAutolyseTitle: "Autolyse",
-      stepAutolyseDesc: "Mehl und Wasser mischen, dann vor Zugabe von Starter und Salz ruhen lassen.",
+      stepAutolyseDesc: "Nur Mehl und Wasser mischen. Vor Starter und Salz ruhen lassen.",
       stepAddStarterTitle: "Starter + Salz einarbeiten",
-      stepAddStarterDesc: "Starter und Salz einfalten, dann ruhen lassen.",
+      stepAddStarterDesc: "Reifen Starter und Salz gleichmaessig einarbeiten, dann Teig entspannen lassen.",
       stepStretchFoldTitle: "Stretch & Fold",
-      stepStretchFoldDesc: "3-4 Runden mit mindestens 30 Min Abstand.",
+      stepStretchFoldDesc: "3-4 Runden mit je 30 Min Abstand, bis der Teig Spannung aufbaut.",
       stepJiggleTitle: "Wackelpudding-Test",
-      stepJiggleDesc: "Teig sollte wackeln und sich von der Schuessel loesen.",
+      stepJiggleDesc: "Teig sollte wackeln und sich vom Schuesselrand loesen, erst dann formen.",
       stepShapeTitle: "Formen",
-      stepShapeDesc: "Vorformen, ruhen, final formen, dann ins Gaerkorb.",
+      stepShapeDesc: "Vorformen, Bankruhe, final formen, dann mit Schluss nach oben ins Gaerkorb.",
       stepColdTitle: "Kalte Gare",
-      stepColdDesc: "Teig formen, kuehlen und direkt aus dem Kuehlschrank backen.",
+      stepColdDesc: "Abgedeckt im Kuehlschrank lagern und direkt kalt backen.",
       stepPreheatTitle: "Ofen vorheizen",
-      stepPreheatDesc: "Ofen und Topf rechtzeitig vorheizen.",
+      stepPreheatDesc: "Ofen und Topf mindestens 1 Stunde auf 250 C vorheizen.",
       stepBakeTitle: "Backen",
-      stepBakeDesc: "Einschneiden, schwaden und bis zur kraeftigen Braeunung backen.",
+      stepBakeDesc: "Einschneiden, in heissen Topf setzen, schwaden: 35 Min bei 250 C mit Deckel, dann 15-20 Min bei 200 C ohne Deckel.",
       stepCoolTitle: "Auskuehlen",
-      stepCoolDesc: "Brot vor dem Anschneiden auskuehlen lassen.",
-      durQuickCheck: "kurz vor Autolyse",
-      durAutolyse: "30-60 Min",
-      durAddStarter: "30-60 Min",
-      durStretchFold: "3-4 Runden, je 30 Min",
-      durJiggle: "~1h vor Formen",
-      durShape: "~30 Min",
+      stepCoolDesc: "Vor dem Anschneiden mindestens 1-2 Stunden auf Gitter auskuehlen lassen.",
+      durQuickCheck: "kurzer Check direkt vor Autolyse",
+      durAutolyse: "30-60 Min Ruhe",
+      durAddStarter: "mischen + 30-60 Min Ruhe",
+      durStretchFold: "3-4 Runden, alle 30 Min",
+      durJiggle: "Ziel: etwa 1h vor Formen",
+      durShape: "insgesamt ca. 30 Min",
       durCold: "{hours}Std.",
-      durPreheat: "1h vor Backen",
+      durPreheat: "1h vor Backen starten",
       durBake: "50-55 Min",
       durCool: "1-2h",
       hourShort: "Std."
@@ -437,10 +437,13 @@
 
   function computeRecipe() {
     var flour = state.totalFlour;
-    var water = flour * (state.hydration / 100);
-    var starter = flour * (state.starterPercent / 100);
+    var totalWater = flour * (state.hydration / 100);
+    var prefermentedFlour = flour * (state.starterPercent / 100);
+    var starterFlour = prefermentedFlour;
+    var starterWater = prefermentedFlour; // 100% hydration starter
+    var starter = starterFlour + starterWater;
     var salt = flour * (state.saltPercent / 100);
-    var totalDough = flour + water + starter + salt;
+    var totalDough = flour + totalWater + salt;
     var perLoaf = totalDough / Math.max(state.loafCount, 1);
 
     var flourBreakdown = [{ name: t("flourWheat"), grams: flour }];
@@ -457,13 +460,16 @@
       ];
     }
 
-    var starterFlour = starter / 2;
-    var starterWater = starter / 2;
     var finalMixFlour = flour - starterFlour;
-    var finalMixWater = water - starterWater;
+    var finalMixWater = totalWater - starterWater;
+
+    // Levain build at 1:6:6 (seed:flour:water), total parts = 13
+    var levainSeed = starter / 13;
+    var levainFlour = starter * (6 / 13);
+    var levainWater = starter * (6 / 13);
 
     return {
-      water: water,
+      water: totalWater,
       starter: starter,
       totalDough: totalDough,
       perLoaf: perLoaf,
@@ -471,9 +477,9 @@
         return { name: item.name, grams: round(item.grams) };
       }),
       preferment: [
-        { name: t("matureStarter"), grams: round(starter * 0.2) },
-        { name: t("flour"), grams: round(starterFlour * 0.8) },
-        { name: t("water"), grams: round(starterWater * 0.8) }
+        { name: t("matureStarter"), grams: round(levainSeed) },
+        { name: t("flour"), grams: round(levainFlour) },
+        { name: t("water"), grams: round(levainWater) }
       ],
       finalMix: [
         { name: t("flour"), grams: round(finalMixFlour) },

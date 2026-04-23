@@ -42,3 +42,6 @@ _site/
 .jekyll-cache/
 .sass-cache/
 .bundle/
+
+# Local reference file (do not track)
+inspiration.html
