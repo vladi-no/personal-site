@@ -484,19 +484,44 @@ input[type="range"] {
   margin-bottom: 8px;
 }
 
+.timeline-phases {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.timeline-phase {
+  border: 1px solid var(--timeline-border);
+  border-radius: 12px;
+  background: var(--timeline-bg);
+  padding: 10px;
+}
+
+.timeline-phase-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--timeline-time-bg);
+  border: 1px solid var(--timeline-time-border);
+  color: var(--details-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 .timeline {
   list-style: none;
-  margin: 14px 0 0;
+  margin: 8px 0 0;
   padding: 0;
   display: grid;
   gap: 10px;
 }
 
 .timeline-item {
-  border: 1px solid var(--timeline-border);
+  border: 1px solid var(--details-border);
   border-radius: 12px;
   padding: 8px 12px;
-  background: var(--timeline-bg);
+  background: var(--details-bg);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 6px 10px;
@@ -505,7 +530,7 @@ input[type="range"] {
   align-items: center;
 }
 
-.timeline-item > div:first-child {
+.timeline-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -520,13 +545,30 @@ input[type="range"] {
 }
 
 .timeline-item p {
-  margin: 4px 0 0;
+  margin: 3px 0 0;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.timeline-dur {
+  color: var(--details-text);
+  font-size: 0.76rem;
+  font-weight: 600;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.timeline-sub {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  white-space: normal;
 }
 
 .timeline-time {
@@ -576,8 +618,13 @@ input[type="range"] {
     align-items: stretch;
   }
 
+  .hero-copy {
+    flex: 0 1 auto;
+  }
+
   .hero-actions {
     width: 100%;
+    flex: 0 1 auto;
     justify-content: flex-start;
   }
 }
@@ -643,6 +690,13 @@ input[type="range"] {
 
   .timeline-item h3 {
     white-space: normal;
+  }
+
+  .timeline-sub,
+  .timeline-dur {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
   }
 }
 

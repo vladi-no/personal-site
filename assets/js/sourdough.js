@@ -46,8 +46,14 @@
       bulkLabel: "Bulk fermentation",
       coldProofLabel: "Cold proof",
       timelineTitle: "Timeline",
-      timelineText: "A step-by-step plan from starter feed to bake.",
+      timelineText: "Detailed day-by-day baking plan.",
       noteText: "Practical sourdough recipe math with adjustable ingredients and timeline planning.",
+      phaseEvening: "Evening",
+      phaseMainDay: "Main Day",
+      phaseBakeDay: "Bake Day",
+      phaseColdProof: "Cold Proof",
+      dayLabel: "Day",
+      timelineDurUntil: "until {time} (~{hours}h)",
       flourWheat: "Wheat flour",
       flourRye: "Rye flour",
       flourBread: "Bread flour",
@@ -57,16 +63,38 @@
       water: "Water",
       salt: "Salt",
       ripeStarter: "Ripe starter",
-      stepFeedTitle: "Feed Starter",
-      stepFeedDesc: "Feed your starter so it peaks by mixing time.",
+      stepFeedTitle: "Build starter",
+      stepFeedDesc: "Feed starter so it peaks by mixing time.",
+      stepStarterCheckTitle: "Starter check",
+      stepStarterCheckDesc: "Is it doubled and bubbly? If not, give it extra warmth.",
       stepAutolyseTitle: "Autolyse",
       stepAutolyseDesc: "Mix flour and water, then rest before adding starter and salt.",
-      stepBulkTitle: "Bulk Fermentation",
-      stepBulkDesc: "Add starter and salt, then ferment at room temperature.",
+      stepAddStarterTitle: "Add starter + salt",
+      stepAddStarterDesc: "Fold in starter and salt, then rest.",
+      stepStretchFoldTitle: "Stretch & fold",
+      stepStretchFoldDesc: "3-4 rounds with at least 30 min between rounds.",
+      stepJiggleTitle: "Jiggle test",
+      stepJiggleDesc: "Dough should wobble and release from bowl before shaping.",
+      stepShapeTitle: "Shape",
+      stepShapeDesc: "Pre-shape, rest, final shape, then into basket.",
       stepColdTitle: "Cold Proof",
       stepColdDesc: "Shape the dough, refrigerate, and bake straight from cold.",
+      stepPreheatTitle: "Preheat oven",
+      stepPreheatDesc: "Heat oven and dutch oven before baking.",
       stepBakeTitle: "Bake",
       stepBakeDesc: "Score, steam, and bake until deeply browned.",
+      stepCoolTitle: "Cool down",
+      stepCoolDesc: "Let bread cool before slicing.",
+      durQuickCheck: "just before autolyse",
+      durAutolyse: "30-60 min",
+      durAddStarter: "30-60 min",
+      durStretchFold: "3-4 rounds, 30 min apart",
+      durJiggle: "~1h before shaping",
+      durShape: "~30 min",
+      durCold: "{hours}h",
+      durPreheat: "1h before baking",
+      durBake: "50-55 min",
+      durCool: "1-2h",
       hourShort: "h"
     },
     de: {
@@ -113,8 +141,14 @@
       bulkLabel: "Stockgare",
       coldProofLabel: "Kalte Gare",
       timelineTitle: "Zeitablauf",
-      timelineText: "Schritt-fuer-Schritt vom Starter bis zum Backen.",
+      timelineText: "Detaillierter Backplan nach Tagen.",
       noteText: "Praktische Sauerteig-Rezeptberechnung mit anpassbaren Zutaten und Zeitplanung.",
+      phaseEvening: "Vorabend",
+      phaseMainDay: "Haupttag",
+      phaseBakeDay: "Backtag",
+      phaseColdProof: "Kalte Gare",
+      dayLabel: "Tag",
+      timelineDurUntil: "bis {time} (~{hours}Std.)",
       flourWheat: "Weizenmehl",
       flourRye: "Roggenmehl",
       flourBread: "Brotmehl",
@@ -124,16 +158,38 @@
       water: "Wasser",
       salt: "Salz",
       ripeStarter: "Reifer Starter",
-      stepFeedTitle: "Starter fuettern",
-      stepFeedDesc: "Fuettere den Starter so, dass er zum Mischzeitpunkt den Peak erreicht.",
+      stepFeedTitle: "Starter ansetzen",
+      stepFeedDesc: "Starter so fuettern, dass er zur Mischzeit am Peak ist.",
+      stepStarterCheckTitle: "Starter-Check",
+      stepStarterCheckDesc: "Verdoppelt und blubbrig? Sonst kurz waermer stellen.",
       stepAutolyseTitle: "Autolyse",
       stepAutolyseDesc: "Mehl und Wasser mischen, dann vor Zugabe von Starter und Salz ruhen lassen.",
-      stepBulkTitle: "Stockgare",
-      stepBulkDesc: "Starter und Salz einarbeiten, dann bei Raumtemperatur fermentieren.",
+      stepAddStarterTitle: "Starter + Salz einarbeiten",
+      stepAddStarterDesc: "Starter und Salz einfalten, dann ruhen lassen.",
+      stepStretchFoldTitle: "Stretch & Fold",
+      stepStretchFoldDesc: "3-4 Runden mit mindestens 30 Min Abstand.",
+      stepJiggleTitle: "Wackelpudding-Test",
+      stepJiggleDesc: "Teig sollte wackeln und sich von der Schuessel loesen.",
+      stepShapeTitle: "Formen",
+      stepShapeDesc: "Vorformen, ruhen, final formen, dann ins Gaerkorb.",
       stepColdTitle: "Kalte Gare",
       stepColdDesc: "Teig formen, kuehlen und direkt aus dem Kuehlschrank backen.",
+      stepPreheatTitle: "Ofen vorheizen",
+      stepPreheatDesc: "Ofen und Topf rechtzeitig vorheizen.",
       stepBakeTitle: "Backen",
       stepBakeDesc: "Einschneiden, schwaden und bis zur kraeftigen Braeunung backen.",
+      stepCoolTitle: "Auskuehlen",
+      stepCoolDesc: "Brot vor dem Anschneiden auskuehlen lassen.",
+      durQuickCheck: "kurz vor Autolyse",
+      durAutolyse: "30-60 Min",
+      durAddStarter: "30-60 Min",
+      durStretchFold: "3-4 Runden, je 30 Min",
+      durJiggle: "~1h vor Formen",
+      durShape: "~30 Min",
+      durCold: "{hours}Std.",
+      durPreheat: "1h vor Backen",
+      durBake: "50-55 Min",
+      durCool: "1-2h",
       hourShort: "Std."
     }
   };
@@ -212,6 +268,12 @@
       hour: "2-digit",
       minute: "2-digit"
     });
+  }
+
+  function startOfDay(date) {
+    var d = new Date(date);
+    d.setHours(0, 0, 0, 0);
+    return d;
   }
 
   function round(n) {
@@ -430,37 +492,120 @@
     var bulkStart = addHours(shapeTime, -state.bulkHours);
     var autolyseStart = addHours(bulkStart, -state.autolyseHours);
     var starterFeed = addHours(autolyseStart, -state.starterLeadHours);
+    var starterCheck = addHours(autolyseStart, -0.25);
+    var addStarter = bulkStart;
+    var stretchFold = addHours(addStarter, 0.5);
+    var jiggle = addHours(shapeTime, -1);
+    var preheat = addHours(bake, -1);
+    var cool = addHours(bake, 0.9);
+
+    var day1Start = startOfDay(starterFeed);
+    function dayNumber(date) {
+      return Math.floor((startOfDay(date).getTime() - day1Start.getTime()) / 86400000) + 1;
+    }
+    function dayLabel(date, phaseKey) {
+      return t("dayLabel") + " " + dayNumber(date) + " - " + t(phaseKey) + " · " + formatDate(date, state.lang);
+    }
+
+    var starterDurHours = Math.max(1, Math.round((autolyseStart.getTime() - starterFeed.getTime()) / 3600000));
 
     return [
       {
-        icon: "🌱",
-        title: t("stepFeedTitle"),
-        description: t("stepFeedDesc"),
-        date: starterFeed
+        label: dayLabel(starterFeed, "phaseEvening"),
+        items: [
+          {
+            icon: "🌱",
+            date: starterFeed,
+            title: t("stepFeedTitle"),
+            sub: t("stepFeedDesc"),
+            dur: template(t("timelineDurUntil"), { time: formatTime(autolyseStart, state.lang), hours: starterDurHours })
+          }
+        ]
       },
       {
-        icon: "💧",
-        title: t("stepAutolyseTitle"),
-        description: t("stepAutolyseDesc"),
-        date: autolyseStart
+        label: dayLabel(autolyseStart, "phaseMainDay"),
+        items: [
+          {
+            icon: "🫙",
+            date: starterCheck,
+            title: t("stepStarterCheckTitle"),
+            sub: t("stepStarterCheckDesc"),
+            dur: t("durQuickCheck")
+          },
+          {
+            icon: "💧",
+            date: autolyseStart,
+            title: t("stepAutolyseTitle"),
+            sub: t("stepAutolyseDesc"),
+            dur: t("durAutolyse")
+          },
+          {
+            icon: "☀️",
+            date: addStarter,
+            title: t("stepAddStarterTitle"),
+            sub: t("stepAddStarterDesc"),
+            dur: t("durAddStarter")
+          },
+          {
+            icon: "👐",
+            date: stretchFold,
+            title: t("stepStretchFoldTitle"),
+            sub: t("stepStretchFoldDesc"),
+            dur: t("durStretchFold")
+          },
+          {
+            icon: "🍮",
+            date: jiggle,
+            title: t("stepJiggleTitle"),
+            sub: t("stepJiggleDesc"),
+            dur: t("durJiggle")
+          },
+          {
+            icon: "🥖",
+            date: shapeTime,
+            title: t("stepShapeTitle"),
+            sub: t("stepShapeDesc"),
+            dur: t("durShape")
+          }
+        ]
       },
       {
-        icon: "☀️",
-        title: t("stepBulkTitle"),
-        description: t("stepBulkDesc"),
-        date: bulkStart
+        label: t("phaseColdProof") + " - " + state.coldFermentHours + t("hourShort"),
+        items: [
+          {
+            icon: "❄️",
+            date: coldStart,
+            title: t("stepColdTitle"),
+            sub: t("stepColdDesc"),
+            dur: template(t("durCold"), { hours: state.coldFermentHours })
+          }
+        ]
       },
       {
-        icon: "❄️",
-        title: t("stepColdTitle") + " - " + state.coldFermentHours + t("hourShort"),
-        description: t("stepColdDesc"),
-        date: coldStart
-      },
-      {
-        icon: "🔥",
-        title: t("stepBakeTitle"),
-        description: t("stepBakeDesc"),
-        date: bake
+        label: dayLabel(bake, "phaseBakeDay"),
+        items: [
+          {
+            icon: "🔥",
+            date: preheat,
+            title: t("stepPreheatTitle"),
+            sub: t("stepPreheatDesc"),
+            dur: t("durPreheat")
+          },
+          {
+            icon: "🥐",
+            date: bake,
+            title: t("stepBakeTitle"),
+            sub: t("stepBakeDesc"),
+            dur: t("durBake")
+          },
+          {
+            icon: "🍞",
+            date: cool,
+            title: t("stepCoolTitle"),
+            sub: t("stepCoolDesc"),
+            dur: t("durCool")
+          }
+        ]
       }
     ];
   }
@@ -473,20 +618,32 @@
       .join("");
   }
 
-  function renderTimeline(items) {
-    refs.timelineList.innerHTML = items
-      .map(function (item) {
+  function renderTimeline(phases) {
+    refs.timelineList.innerHTML = phases
+      .map(function (phase) {
+        var itemsHtml = phase.items
+          .map(function (item) {
+            return (
+              "<li class=\"timeline-item\">" +
+              "<div class=\"timeline-copy\">" +
+              "<h3>" + item.icon + " " + item.title + "</h3>" +
+              "<p class=\"timeline-sub\">" + item.sub + "</p>" +
+              "<p class=\"timeline-dur\">" + item.dur + "</p>" +
+              "</div>" +
+              "<div class=\"timeline-time\">" +
+              "<strong>" + formatTime(item.date, state.lang) + "</strong>" +
+              "<span>" + formatDate(item.date, state.lang) + "</span>" +
+              "</div>" +
+              "</li>"
+            );
+          })
+          .join("");
+
         return (
-          "<li class=\"timeline-item\">" +
-          "<div>" +
-          "<h3>" + item.icon + " " + item.title + "</h3>" +
-          "<p>" + item.description + "</p>" +
-          "</div>" +
-          "<div class=\"timeline-time\">" +
-          "<strong>" + formatTime(item.date, state.lang) + "</strong>" +
-          "<span>" + formatDate(item.date, state.lang) + "</span>" +
-          "</div>" +
-          "</li>"
+          "<section class=\"timeline-phase\">" +
+          "<div class=\"timeline-phase-label\">" + phase.label + "</div>" +
+          "<ul class=\"timeline\">" + itemsHtml + "</ul>" +
+          "</section>"
         );
       })
       .join("");
