@@ -18,19 +18,19 @@ No build tools, no frameworks – just static files.
 ## Features
 
 - **Light / dark mode**
-  - Stored in `localStorage` and applied before first paint to avoid flicker.
-  - Toggle button (sun/moon) in the top navigation.
+    - Stored in `localStorage` and applied before first paint to avoid flicker.
+    - Toggle button (sun/moon) in the top navigation.
 - **Smoother navigation**
-  - View Transitions for same-origin page changes (snappy cross-fades between pages).
-  - Speculation Rules to prefetch/prerender nav pages when supported.
-  - JS prefetch fallback for browsers without Speculation Rules.
+    - View Transitions for same-origin page changes (snappy cross-fades between pages).
+    - Speculation Rules to prefetch/prerender nav pages when supported.
+    - JS prefetch fallback for browsers without Speculation Rules.
 - **Responsive layout**
-  - Single centered card (`.container`) with a max width of 680px.
-  - Mobile-friendly layout via a small set of media queries.
+    - Single centered card (`.container`) with a max width of 680px.
+    - Mobile-friendly layout via a small set of media queries.
 - **Soft visual style**
-  - Gentle petrol accent color.
-  - Subtle section highlighting for CV and portfolio entries.
-  - Background illustration (lake/hill) behind the main container.
+    - Gentle petrol accent color.
+    - Subtle section highlighting for CV and portfolio entries.
+    - Background illustration (lake/hill) behind the main container.
 
 ## Pages
 
@@ -48,48 +48,48 @@ No build tools, no frameworks – just static files.
 ### Portfolio (`portfolio.html`)
 
 - Selected projects and work highlights, including:
-  - Atlassian Jira feature work (issue assignment intelligence).
-  - Company-specific RAG / LLM assistants.
-  - ERP and operations tooling (Bizboard, Sunvigo, SpotmyEnergy, etc.).
-  - Native mobile apps (Android/iOS).
-  - Solar monitoring app for Sunvigo.
-  - Low-resource speech technology projects.
-  - Medical imaging ML pipelines.
-  - Personal and client web projects (author and coaching sites).
+    - Atlassian Jira feature work (issue assignment intelligence).
+    - Company-specific RAG / LLM assistants.
+    - ERP and operations tooling (Bizboard, Sunvigo, SpotmyEnergy, etc.).
+    - Native mobile apps (Android/iOS).
+    - Solar monitoring app for Sunvigo.
+    - Low-resource speech technology projects.
+    - Medical imaging ML pipelines.
+    - Personal and client web projects (author and coaching sites).
 
 Each project section briefly describes the context, goals, and tech used.
 
 ### Contact (`contact.html`)
 
 - Simple contact page with buttons for:
-  - Email (`mailto:`)
-  - GitHub profile
-  - Instagram
+    - Email (`mailto:`)
+    - GitHub profile
+    - Instagram
 
 ## Project structure
 
 ```text
 personal-site/
-  index.html
-  about.html
-  cv.html
-  portfolio.html
-  contact.html
-  cabin-fever-booklet.html
-  CNAME
-  apple-touch-icon.png
-  favicon-16x16.png
-  favicon-32x32.png
-  favicon.ico
-  site.webmanifest
-  assets/
-    css/
-      styles.css
-    js/
-      nav-prefetch.js
-      theme.js
-    img/
-      lake.png
+    index.html
+    about.html
+    cv.html
+    portfolio.html
+    contact.html
+    cabin-fever-booklet.html
+    CNAME
+    apple-touch-icon.png
+    favicon-16x16.png
+    favicon-32x32.png
+    favicon.ico
+    site.webmanifest
+    assets/
+        css/
+            styles.css
+        js/
+            nav-prefetch.js
+            theme.js
+        img/
+            lake.png
 ```
 
 ## Running locally

@@ -1,0 +1,100 @@
+---
+layout: none
+title: "Repeat: Visual attention task"
+permalink: /qb-test/
+---
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="A browser-based visual 1-back repetition-detection task.">
+    <title>Repeat: Visual attention task</title>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var mode = 'dark';
+            try {
+                mode = localStorage.getItem('qb-test-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            } catch (error) { /* Use the dark default when storage is unavailable. */ }
+            root.dataset.theme = mode;
+            root.style.colorScheme = mode;
+        }());
+    </script>
+    <link rel="stylesheet" href="{{ '/assets/css/qb-test.css' | relative_url }}">
+</head>
+<body class="qb-test-page">
+    <main class="qb-test" aria-labelledby="qb-test-title">
+        <header class="qb-test__masthead">
+            <a class="qb-test__wordmark" href="{{ '/qb-test/' | relative_url }}" aria-label="Restart the Repeat task">
+                <span class="qb-test__mark" aria-hidden="true"></span>
+                <span>repeat</span>
+            </a>
+            <div class="qb-test__masthead-actions">
+                <span class="qb-test__mode">Visual attention task</span>
+                <button class="qb-test__theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+                    <span aria-hidden="true" class="qb-test__theme-icon">◐</span>
+                    <span id="theme-toggle-label">Light</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="qb-test__intro" id="instructions-view">
+            <p class="qb-test__eyebrow">1-back detection</p>
+            <h1 id="qb-test-title">Notice the repeat.</h1>
+            <p class="qb-test__lead">One shape appears at a time. Respond only when it is identical to the shape immediately before it: same shape, same colour.</p>
+            <p class="qb-test__notice"><strong>Personal interest only.</strong> This is not a clinical or diagnostic instrument and cannot diagnose ADHD or any other condition.</p>
+
+            <div class="qb-test__rules" aria-label="How the task works">
+                <div><span aria-hidden="true">01</span><p>Watch the sequence.</p></div>
+                <div><span aria-hidden="true">02</span><p>Keep the last shape in mind.</p></div>
+                <div><span aria-hidden="true">03</span><p>Respond only to exact repeats.</p></div>
+            </div>
+
+            <div class="qb-test__start-area">
+                <button class="qb-test__button qb-test__button--primary" id="start-test" type="button">Begin task <span aria-hidden="true">→</span></button>
+                <p class="qb-test__meta">60 trials · about 3 minutes · <kbd>Space</kbd> or touch</p>
+            </div>
+        </section>
+
+        <section class="qb-test__run" id="run-view" hidden>
+            <div class="qb-test__status" aria-live="polite">
+                <span id="test-status">Get ready</span>
+                <span id="test-progress">0 / 60</span>
+            </div>
+            <div class="qb-test__stage" id="stimulus-stage" aria-label="Test stimulus" aria-live="off">
+                <div class="qb-test__countdown" id="countdown" hidden>3</div>
+                <div class="qb-test__shape" id="stimulus" aria-hidden="true"></div>
+            </div>
+            <div class="qb-test__response-area">
+                <p class="qb-test__response-hint">Exact repeat? Press <kbd>Space</kbd> or tap.</p>
+                <button class="qb-test__button qb-test__response-button" id="response-button" type="button" disabled>Respond</button>
+                <button class="qb-test__end-button" id="end-test" type="button">End task</button>
+            </div>
+        </section>
+
+        <section class="qb-test__summary" id="summary-view" aria-labelledby="summary-title" hidden>
+            <p class="qb-test__eyebrow">Run complete</p>
+            <h1 id="summary-title">Your results.</h1>
+            <p class="qb-test__summary-note">These figures describe this one task only; they are not a medical assessment.</p>
+            <dl class="qb-test__metrics" id="metrics"></dl>
+            <div class="qb-test__actions">
+                <button class="qb-test__button qb-test__button--primary" id="export-json" type="button">Download JSON</button>
+                <button class="qb-test__button" id="export-csv" type="button">Download CSV</button>
+                <button class="qb-test__button qb-test__button--quiet" id="restart-test" type="button">Run again</button>
+            </div>
+        </section>
+
+        <section class="qb-test__aborted" id="aborted-view" aria-live="polite" hidden>
+            <p class="qb-test__eyebrow">Task ended</p>
+            <h1>Not quite finished.</h1>
+            <p>No result was calculated for this incomplete run.</p>
+            <button class="qb-test__button qb-test__button--primary" id="try-again" type="button">Try again <span aria-hidden="true">→</span></button>
+        </section>
+    </main>
+
+    <script type="module" src="{{ '/assets/js/qb-test/main.js' | relative_url }}"></script>
+</body>
+</html>

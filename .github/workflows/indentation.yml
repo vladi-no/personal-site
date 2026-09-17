@@ -1,0 +1,13 @@
+name: Indentation
+
+on:
+    pull_request:
+    push:
+        branches: [main]
+
+jobs:
+    check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - { name: Check four-space indentation, run: ruby scripts/check_indentation.rb }
