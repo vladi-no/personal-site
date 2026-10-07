@@ -23,6 +23,10 @@ const engine = new TrialEngine(CONFIG);
 const responseHandler = new ResponseHandler(engine, element('response-button'), CONFIG.responseKeys);
 let completedResult = null;
 
+const durationMinutes = CONFIG.totalTrials * CONFIG.interTrialIntervalMs / 60000;
+element('test-duration').textContent = `${CONFIG.totalTrials} trials · about ${durationMinutes} minutes`;
+progress.textContent = `0 / ${CONFIG.totalTrials}`;
+
 const setTheme = (mode) => {
     document.documentElement.dataset.theme = mode;
     document.documentElement.style.colorScheme = mode;

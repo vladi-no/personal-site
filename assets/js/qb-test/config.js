@@ -2,7 +2,7 @@ export const CONFIG = Object.freeze({
     stimulusDurationMs: 200,
     interTrialIntervalMs: 3000,
     responseWindowMs: 3000,
-    totalTrials: 60,
+    totalTrials: 600,
     targetMatchRatio: 0.25,
     responseKeys: ['Space'],
     countdownSeconds: 3,

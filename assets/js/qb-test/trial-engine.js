@@ -4,11 +4,15 @@ const delay = (duration, signal) => new Promise((resolve, reject) => {
         return;
     }
 
-    const timer = window.setTimeout(resolve, Math.max(0, duration));
-    signal.addEventListener('abort', () => {
+    const onAbort = () => {
         window.clearTimeout(timer);
         reject(new DOMException('The run was stopped.', 'AbortError'));
-    }, { once: true });
+    };
+    const timer = window.setTimeout(() => {
+        signal.removeEventListener('abort', onAbort);
+        resolve();
+    }, Math.max(0, duration));
+    signal.addEventListener('abort', onAbort, { once: true });
 });
 
 const shuffle = (items) => {

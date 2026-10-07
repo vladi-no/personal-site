@@ -55,14 +55,14 @@ permalink: /qb-test/
 
             <div class="qb-test__start-area">
                 <button class="qb-test__button qb-test__button--primary" id="start-test" type="button">Begin task <span aria-hidden="true">→</span></button>
-                <p class="qb-test__meta">60 trials · about 3 minutes · <kbd>Space</kbd> or touch</p>
+                <p class="qb-test__meta"><span id="test-duration">600 trials · about 30 minutes</span> · <kbd>Space</kbd> or touch</p>
             </div>
         </section>
 
         <section class="qb-test__run" id="run-view" hidden>
             <div class="qb-test__status" aria-live="polite">
                 <span id="test-status">Get ready</span>
-                <span id="test-progress">0 / 60</span>
+                <span id="test-progress">0 / 600</span>
             </div>
             <div class="qb-test__stage" id="stimulus-stage" aria-label="Test stimulus" aria-live="off">
                 <div class="qb-test__countdown" id="countdown" hidden>3</div>
