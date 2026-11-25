@@ -1,32 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
+// Loaded as a module (deferred), so the DOM is ready when this runs.
+// The initial theme is already applied by the inline script in the layout's <head>;
+// this only wires up the toggle and follows OS changes until the visitor picks a theme.
+const toggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+const systemDark = matchMedia('(prefers-color-scheme: dark)');
 
-    function setTheme(mode) {
-        html.setAttribute('data-theme', mode);
-        html.style.colorScheme = mode === 'dark' ? 'dark' : 'light';
-        localStorage.setItem('theme', mode);
-
-        if (toggle) {
-            toggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
-        }
+const readSaved = () => {
+    try {
+        const saved = localStorage.getItem('theme');
+        return saved === 'light' || saved === 'dark' ? saved : null;
+    } catch {
+        return null;
     }
+};
 
-    if (toggle) {
-        toggle.addEventListener('click', () => {
-            const current = html.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            setTheme(next);
-        });
-    }
+const applyTheme = (mode) => {
+    root.dataset.theme = mode;
+    root.style.colorScheme = mode;
+    toggle?.setAttribute('aria-pressed', String(mode === 'dark'));
+};
 
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-        setTheme(saved);
-    } else {
-        const prefersDark =
-            window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(prefersDark ? 'dark' : 'light');
-    }
+applyTheme(readSaved() ?? (systemDark.matches ? 'dark' : 'light'));
+
+toggle?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try {
+        localStorage.setItem('theme', next);
+    } catch { }
+});
+
+systemDark.addEventListener('change', (event) => {
+    if (!readSaved()) applyTheme(event.matches ? 'dark' : 'light');
 });

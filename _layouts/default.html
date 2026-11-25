@@ -49,43 +49,34 @@
     </style>
 
     <script>
-        (function () {
-            var root = document.documentElement;
-            var isInitialLoad = false;
+        {
+            const root = document.documentElement;
 
+            let isInitialLoad = false;
             try {
-                if (window.sessionStorage && !sessionStorage.getItem('initial-load')) {
+                if (!sessionStorage.getItem('initial-load')) {
                     sessionStorage.setItem('initial-load', 'true');
                     isInitialLoad = true;
                 }
-            } catch (e) {
+            } catch {
                 isInitialLoad = true;
             }
 
             if (isInitialLoad) {
-                root.setAttribute('data-initial-load', 'true');
+                root.dataset.initialLoad = 'true';
             }
 
-            function applyTheme(mode) {
-                root.setAttribute('data-theme', mode);
-                root.style.colorScheme = mode === 'dark' ? 'dark' : 'light';
-            }
-
+            // Saved choice wins; otherwise follow the OS. Nothing is written here.
+            let mode = null;
             try {
-                var saved = localStorage.getItem('theme');
-                var mode = saved;
+                const saved = localStorage.getItem('theme');
+                if (saved === 'light' || saved === 'dark') mode = saved;
+            } catch { }
+            mode ??= matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-                if (!mode) {
-                    var prefersDark = window.matchMedia &&
-                        window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    mode = prefersDark ? 'dark' : 'light';
-                }
-
-                applyTheme(mode);
-            } catch (e) {
-                applyTheme('light');
-            }
-        })();
+            root.dataset.theme = mode;
+            root.style.colorScheme = mode;
+        }
     </script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
@@ -149,8 +140,8 @@
         </main>
     </div>
 
-    <script src="{{ '/assets/js/nav-prefetch.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+    <script type="module" src="{{ '/assets/js/nav-prefetch.js' | relative_url }}"></script>
+    <script type="module" src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 </body>
 
 </html>

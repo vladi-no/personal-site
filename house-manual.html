@@ -91,7 +91,7 @@
     <script>
         // Apply a saved choice before the page paints; otherwise follow the system setting.
         try {
-            const savedTheme = localStorage.getItem('house-manual-theme');
+            const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light' || savedTheme === 'dark') {
                 document.documentElement.dataset.theme = savedTheme;
             }
@@ -260,7 +260,7 @@
             const next = isDark() ? 'light' : 'dark';
             root.dataset.theme = next;
             try {
-                localStorage.setItem('house-manual-theme', next);
+                localStorage.setItem('theme', next);
             } catch { }
             updateButton();
         });

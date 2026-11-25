@@ -1,38 +1,23 @@
-(function () {
-    if (
-        window.HTMLScriptElement &&
-        HTMLScriptElement.supports &&
-        HTMLScriptElement.supports('speculationrules')
-    ) {
-        return;
+// Fallback for browsers without Speculation Rules: prefetch nav links on hover/focus.
+// Loaded as a module (deferred), so the DOM is ready when this runs.
+const prefetch = (link) => {
+    if (link.dataset.prefetched === 'true') return;
+
+    const url = link.href;
+    if (!url?.startsWith(location.origin)) return;
+
+    const hint = document.createElement('link');
+    hint.rel = 'prefetch';
+    hint.href = url;
+    hint.as = 'document';
+
+    document.head.append(hint);
+    link.dataset.prefetched = 'true';
+};
+
+if (!HTMLScriptElement.supports?.('speculationrules')) {
+    for (const link of document.querySelectorAll('nav a[href]')) {
+        link.addEventListener('mouseenter', () => prefetch(link));
+        link.addEventListener('focus', () => prefetch(link));
     }
-
-    function prefetch(link) {
-        if (!link || link.dataset.prefetched === 'true') return;
-
-        var url = link.href;
-        if (!url || url.indexOf(location.origin) !== 0) return;
-
-        var hint = document.createElement('link');
-        hint.rel = 'prefetch';
-        hint.href = url;
-        hint.as = 'document';
-
-        document.head.appendChild(hint);
-        link.dataset.prefetched = 'true';
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var navLinks = document.querySelectorAll('nav a[href]');
-
-        navLinks.forEach(function (link) {
-            link.addEventListener('mouseenter', function () {
-                prefetch(link);
-            });
-
-            link.addEventListener('focus', function () {
-                prefetch(link);
-            });
-        });
-    });
-})();
+}

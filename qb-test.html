@@ -12,16 +12,16 @@ permalink: /qb-test/
     <meta name="description" content="A browser-based visual 1-back repetition-detection task.">
     <title>Repeat: Visual attention task</title>
     <script>
-        (function () {
-            var root = document.documentElement;
-            var mode = 'dark';
+        {
+            const root = document.documentElement;
+            let mode = 'dark';
             try {
                 mode = localStorage.getItem('qb-test-theme') ||
-                    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-            } catch (error) { /* Use the dark default when storage is unavailable. */ }
+                    (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            } catch { /* Use the dark default when storage is unavailable. */ }
             root.dataset.theme = mode;
             root.style.colorScheme = mode;
-        }());
+        }
     </script>
     <link rel="stylesheet" href="{{ '/assets/css/qb-test.css' | relative_url }}">
 </head>
