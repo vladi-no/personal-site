@@ -205,13 +205,34 @@ const flourLabels = {
     }
 };
 
+// Storage can throw (privacy modes, blocked site data); treat that as "nothing saved".
+const readStorage = (key) => {
+    try {
+        return localStorage.getItem(key);
+    } catch {
+        return null;
+    }
+};
+
+const writeStorage = (key, value) => {
+    try {
+        localStorage.setItem(key, value);
+    } catch { }
+};
+
+// YYYY-MM-DD in local time (toISOString() would give the UTC date).
+const toLocalDateString = (date) =>
+    [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+        .map((part, i) => String(part).padStart(i === 0 ? 4 : 2, "0"))
+        .join("-");
+
 function getInitialLang() {
-    const stored = localStorage.getItem("sourdough_lang");
+    const stored = readStorage("sourdough_lang");
     return stored === "de" ? "de" : "en";
 }
 
 function getInitialTheme() {
-    const stored = localStorage.getItem("sourdough_theme");
+    const stored = readStorage("sourdough_theme");
     if (stored === "dark" || stored === "light") {
         return stored;
     }
@@ -230,7 +251,7 @@ function createDefaultState() {
     return {
         lang: getInitialLang(),
         theme: getInitialTheme(),
-        bakeDate: bake.toISOString().slice(0, 10),
+        bakeDate: toLocalDateString(bake),
         bakeTime: "10:00",
         totalFlour: 1000,
         hydration: 70,
@@ -705,19 +726,19 @@ function wireControls() {
 
     refs.langEnButton.addEventListener("click", () => {
         state.lang = "en";
-        localStorage.setItem("sourdough_lang", "en");
+        writeStorage("sourdough_lang", "en");
         render();
     });
 
     refs.langDeButton.addEventListener("click", () => {
         state.lang = "de";
-        localStorage.setItem("sourdough_lang", "de");
+        writeStorage("sourdough_lang", "de");
         render();
     });
 
     refs.themeToggleButton.addEventListener("click", () => {
         state.theme = state.theme === "dark" ? "light" : "dark";
-        localStorage.setItem("sourdough_theme", state.theme);
+        writeStorage("sourdough_theme", state.theme);
         render();
     });
 }
