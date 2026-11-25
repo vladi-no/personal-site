@@ -8,11 +8,38 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+        :root {
+            --bg: #ffffff;
+            --text: #222222;
+            --button-bg: #f2f2f2;
+            --button-border: #d6d6d6;
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #1a1b1e;
+                --text: #e4e4e4;
+                --button-bg: #2a2b2f;
+                --button-border: #3d3e43;
+                color-scheme: dark;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #1a1b1e;
+            --text: #e4e4e4;
+            --button-bg: #2a2b2f;
+            --button-border: #3d3e43;
+            color-scheme: dark;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             font-size: 17px;
-            color: #222;
+            background: var(--bg);
+            color: var(--text);
             max-width: 800px;
             margin: auto;
             padding: 30px;
@@ -46,10 +73,34 @@
         h3 {
             font-size: 1.25rem;
         }
+
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--button-border);
+            background: var(--button-bg);
+            font-size: 1.3rem;
+            line-height: 1;
+            cursor: pointer;
+        }
     </style>
+    <script>
+        // Apply a saved choice before the page paints; otherwise follow the system setting.
+        try {
+            var savedTheme = localStorage.getItem('house-manual-theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        } catch (e) { }
+    </script>
 </head>
 
 <body>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode"></button>
     <h1 id="house-manual">🌿 House Manual</h1>
     <h2 id="house-notes">House Notes</h2>
     <p>These are the shared guidelines for the apartment, meant to keep
@@ -189,6 +240,34 @@
         </li>
         <li>Clean windows + hallway mirror: 🦁</li>
     </ul>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var button = document.querySelector('.theme-toggle');
+            var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+            function isDark() {
+                var theme = root.getAttribute('data-theme');
+                return theme ? theme === 'dark' : systemDark.matches;
+            }
+
+            function updateButton() {
+                var dark = isDark();
+                button.textContent = dark ? '☀️' : '🌙';
+                button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+            }
+
+            button.addEventListener('click', function () {
+                var next = isDark() ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('house-manual-theme', next); } catch (e) { }
+                updateButton();
+            });
+
+            systemDark.addEventListener('change', updateButton);
+            updateButton();
+        })();
+    </script>
 </body>
 
 </html>
