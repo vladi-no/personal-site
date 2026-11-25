@@ -91,11 +91,11 @@
     <script>
         // Apply a saved choice before the page paints; otherwise follow the system setting.
         try {
-            var savedTheme = localStorage.getItem('house-manual-theme');
+            const savedTheme = localStorage.getItem('house-manual-theme');
             if (savedTheme === 'light' || savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', savedTheme);
+                document.documentElement.dataset.theme = savedTheme;
             }
-        } catch (e) { }
+        } catch { }
     </script>
 </head>
 
@@ -240,33 +240,33 @@
         </li>
         <li>Clean windows + hallway mirror: 🦁</li>
     </ul>
-    <script>
-        (function () {
-            var root = document.documentElement;
-            var button = document.querySelector('.theme-toggle');
-            var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+    <script type="module">
+        const root = document.documentElement;
+        const button = document.querySelector('.theme-toggle');
+        const systemDark = matchMedia('(prefers-color-scheme: dark)');
 
-            function isDark() {
-                var theme = root.getAttribute('data-theme');
-                return theme ? theme === 'dark' : systemDark.matches;
-            }
+        const isDark = () => {
+            const theme = root.dataset.theme;
+            return theme ? theme === 'dark' : systemDark.matches;
+        };
 
-            function updateButton() {
-                var dark = isDark();
-                button.textContent = dark ? '☀️' : '🌙';
-                button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-            }
+        const updateButton = () => {
+            const dark = isDark();
+            button.textContent = dark ? '☀️' : '🌙';
+            button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        };
 
-            button.addEventListener('click', function () {
-                var next = isDark() ? 'light' : 'dark';
-                root.setAttribute('data-theme', next);
-                try { localStorage.setItem('house-manual-theme', next); } catch (e) { }
-                updateButton();
-            });
-
-            systemDark.addEventListener('change', updateButton);
+        button.addEventListener('click', () => {
+            const next = isDark() ? 'light' : 'dark';
+            root.dataset.theme = next;
+            try {
+                localStorage.setItem('house-manual-theme', next);
+            } catch { }
             updateButton();
-        })();
+        });
+
+        systemDark.addEventListener('change', updateButton);
+        updateButton();
     </script>
 </body>
 
