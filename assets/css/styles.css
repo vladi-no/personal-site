@@ -116,6 +116,100 @@ body {
     }
 }
 
+/* ===== Motion ===== */
+
+/* Everything here is opt-in: nothing moves for people who prefer reduced motion. */
+/* Entrance/reveal animations use `opacity` + `translate` and hover effects use `transform`, */
+/* so a held (fill: both) animation never blocks a hover. */
+
+/* `screen` keeps not-yet-revealed sections from printing blank (e.g. the CV). */
+@media screen and (prefers-reduced-motion: no-preference) {
+
+    /* Staggered entrance on the first page of a visit (same flag as the card fade-in). */
+    /* Sections are left out: they get the scroll reveal below instead. */
+    [data-initial-load='true'] main > :not(section) {
+        animation: rise-in 450ms cubic-bezier(0.2, 0.6, 0.3, 1) both;
+        animation-delay: calc(var(--stagger, 9) * 50ms);
+    }
+
+    main > :nth-child(1) { --stagger: 0; }
+    main > :nth-child(2) { --stagger: 1; }
+    main > :nth-child(3) { --stagger: 2; }
+    main > :nth-child(4) { --stagger: 3; }
+    main > :nth-child(5) { --stagger: 4; }
+    main > :nth-child(6) { --stagger: 5; }
+    main > :nth-child(7) { --stagger: 6; }
+    main > :nth-child(8) { --stagger: 7; }
+    main > :nth-child(9) { --stagger: 8; }
+
+    /* Scroll reveal for portfolio/CV/about cards, driven by the scroll position (no JS). */
+    @supports (animation-timeline: view()) {
+        main > section {
+            animation: rise-in linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 70%;
+        }
+    }
+
+    /* Hover lift (pointer devices only). */
+    @media (hover: hover) {
+        main > section {
+            transition: background-color 0.2s ease, border-color 0.2s ease,
+                transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Keep color at 0.3s so the text stays in sync with the ::before fill sweep. */
+        .btn {
+            transition: color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        main > section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 30%, transparent);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+    }
+
+    /* Slow parallax: the lake drifts up by --lake-drift over the whole page scroll. */
+    /* parallax.js sets it to 4% of the scroll length, so every page moves at the same rate. */
+    /* Without JS it stays 0px and the lake simply doesn't move. */
+    /* Desktop only; on phones the background scrolls with the page (see max-width: 600px). */
+    @media (min-width: 601px) {
+        @supports (animation-timeline: scroll()) {
+            body {
+                animation: lake-drift linear both;
+                animation-timeline: scroll(root);
+            }
+        }
+    }
+}
+
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        translate: 0 12px;
+    }
+}
+
+@keyframes lake-drift {
+    from {
+        background-position: center calc(100% + var(--lake-drift, 0px));
+    }
+
+    to {
+        background-position: center 100%;
+    }
+}
+
 /* ===== Links ===== */
 
 a {
