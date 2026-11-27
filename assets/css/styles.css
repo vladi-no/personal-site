@@ -147,8 +147,8 @@ main a:not(.btn):focus {
     /* full width up to max */
     margin: 40px;
     padding: 40px;
-    min-height: calc(100vh - 80px);
-    /* 100vh minus top+bottom margins (40 + 40) */
+    /* Hug the content instead of stretching to the body's full height. */
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     background: var(--card);
