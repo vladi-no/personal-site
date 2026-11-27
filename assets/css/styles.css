@@ -190,6 +190,16 @@ body {
                 animation-timeline: scroll(root);
             }
         }
+
+        /* Pointer parallax: the lake shifts up to ±12px horizontally, opposite the pointer. */
+        /* parallax.js sets --pointer-x; the lake is 24px wider so its edges never show. */
+        /* Only the y position is scroll-animated (lake-drift), so the two don't fight. */
+        @media (hover: hover) and (pointer: fine) {
+            body {
+                background-size: calc(100% + 24px) auto;
+                background-position-x: calc(50% + var(--pointer-x, 0px));
+            }
+        }
     }
 }
 
@@ -202,11 +212,11 @@ body {
 
 @keyframes lake-drift {
     from {
-        background-position: center calc(100% + var(--lake-drift, 0px));
+        background-position-y: calc(100% + var(--lake-drift, 0px));
     }
 
     to {
-        background-position: center 100%;
+        background-position-y: 100%;
     }
 }
 
